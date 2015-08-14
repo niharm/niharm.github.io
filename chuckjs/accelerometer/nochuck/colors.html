@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css"></link>
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script> 
+	<script type="text/javascript" src="../js/log4javascript.js"></script> 
+	<script type="text/javascript" src="../js/q.js"></script> 
+	<script type="text/javascript" src="../js/chuck.js"></script> 
+	<script type="text/javascript" src="../gyro_chuck.js"></script> 
+	<title>ChucKJS Example 1</title>
+
+
+</head>
+<body>
+	<h1>ChucKJS + Gyroscope</h1>
+		<input id="start" type="button" value="Start">
+	<div id = 'stuff' class="container hidden">
+		<p>Uses colors to trigger bell sounds.</p>
+		<p>Note: You must press 'start' first.</p>
+		<input id="arguments" type="text" value="0:1:1"> 
+		<!--get arguments through me.arg(0)-->		
+ 		<pre id="code"></pre>
+	</div>
+	<br>
+
+	<div class="box" id="accel">
+		<span class="head">Accelerometer</span>
+		<span id="xlabel"></span>
+		<span id="ylabel"></span>
+		<span id="zlabel"></span>
+		<span id="ilabel"></span>																						
+	</div>		
+
+	<div class="box" id="da">
+		<span class="head">Change in Acceleration</span>
+		<span id="dax"></span>
+		<span id="day"></span>
+		<span id="daz"></span>
+	</div>		
+
+	<div class="box" id="gyro">
+		<span class="head">Gyroscope</span>
+		<span id="alphalabel"></span>			
+		<span id="betalabel"></span>
+		<span id="gammalabel"></span>
+	</div>
+
+	<div class="box" id="gyro">
+		<span class="head">Rounded Gyroscope</span>
+		<span id="alpharoundedlabel"></span>			
+		<span id="betaroundedlabel"></span>
+		<span id="gammaroundedlabel"></span>
+	</div>
+
+	<div class="box" id="accelerated">
+		<span id="accelerated"></span>
+	</div>
+	<audio  id="bell">
+	  <source src="bell.aif" type="audio/mpeg">
+		Your browser does not support the audio element.
+	</audio>
+
+
+	<script> 
+		// run on page load
+		var button = document.getElementById('start');
+		var audio = document.getElementById('bell');
+
+		var onClick = function() {
+		    audio.load(); // audio will load and then play
+		};
+
+		button.addEventListener('click', onClick, false);
+
+	</script>
+
+
+	<script> 
+
+			// Position Variables
+			var ax, ay, az;
+			var dax = 0;
+			var day = 0;
+			var daz = 0;
+
+			// Acceleration
+
+			var delay = 100;
+
+			var alpha = 0;
+			var beta = 0;
+			var gamma = 0;
+			
+//			var run = 1;
+
+			var bell = document.getElementById("bell");
+
+
+			
+			setInterval(function() {
+
+			if (window.DeviceMotionEvent==undefined) {
+				document.getElementById("no").style.display="block";
+				document.getElementById("yes").style.display="none";
+			} 
+
+			else {
+				window.ondevicemotion = function(event) {
+					previousAx = ax;
+					previousAy = ay;
+					previousAz = az;
+
+					ax = Math.round(Math.abs(event.accelerationIncludingGravity.x * 1));
+					ay = Math.round(Math.abs(event.accelerationIncludingGravity.y * 1));
+					az = Math.round(Math.abs(event.accelerationIncludingGravity.z * 1));		
+
+					rR = event.rotationRate;
+					if (rR != null) {
+						arAlpha = Math.round(rR.alpha);
+						arBeta = Math.round(rR.beta);
+						arGamma = Math.round(rR.gamma);
+					}
+
+					dax = previousAx - ax;
+					day = previousAy - ay;
+					daz = previousAz - az;		
+
+					// check shake 
+					if ((dax * dax + day * day + daz * daz) > 9) {
+						document.getElementById("accelerated").innerHTML = "test-celeration";
+
+						// play bell if currently colored
+						if (document.bgColor != "FFFFFF") {
+							bell.play();
+						}
+					}
+				}
+
+				window.ondeviceorientation = function(event) {
+					alpha = Math.round(event.alpha);
+					beta = Math.round(event.beta);
+					gamma = Math.round(event.gamma);
+
+				  if(event.webkitCompassHeading) {
+				    alpha = Math.round(event.webkitCompassHeading);
+				  }
+				  else alpha = Math.round(event.alpha);
+
+					// if standing up
+					if (beta > 70) {
+						
+						if (alpha > (90-20) && alpha < (90+20)) 
+							document.bgColor = "FF0000";
+
+						else if (alpha > (270-20) && alpha < (270+20)) 
+							document.bgColor = "0000FF";
+
+						else if (alpha > (360-20) || alpha < (0+20)) 
+							document.bgColor = "00FF00";
+
+						else if (alpha > (180-20) && alpha < (180+20)) 
+							document.bgColor = "990066";
+
+						else 
+							document.bgColor = "FFFFFF";
+
+//gold = FFD700
+
+					}
+					else {
+						document.bgColor = "FFFFFF";
+					}
+
+
+				}				
+				
+					document.getElementById("xlabel").innerHTML = "X: " + ax;
+					document.getElementById("ylabel").innerHTML = "Y: " + ay;
+					document.getElementById("zlabel").innerHTML = "Z: " + az;										
+
+					document.getElementById("dax").innerHTML = "X: " + dax;
+					document.getElementById("day").innerHTML = "Y: " + day;
+					document.getElementById("daz").innerHTML = "Z: " + daz;										
+									
+					document.getElementById("alphalabel").innerHTML = "Alpha: " + alpha;
+					document.getElementById("betalabel").innerHTML = "Beta: " + beta;
+					document.getElementById("gammalabel").innerHTML = "Gamma: " + gamma;
+
+
+
+					document.getElementById("alpharoundedlabel").innerHTML = "Alpha: " + Math.round(alpha/90) * 90;
+					document.getElementById("betaroundedlabel").innerHTML = "Beta: " + Math.round(beta/90) * 90;
+					document.getElementById("gammaroundedlabel").innerHTML = "Gamma: " + Math.round(gamma/90) * 90;
+
+				}
+
+				
+				}, delay);
+</script> 
+
+</body>
+</html>

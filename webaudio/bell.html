@@ -1,0 +1,40 @@
+<head>
+  <script src="js/init.js"></script>
+  <script src="js/bell.js"></script>
+  <script src="js/move.js"></script>
+  <script src="js/bell_motion.js"></script>
+
+  <style>
+	 html, body {
+	 height: 100%;
+	 padding:0;
+	 margin: 0;
+	}
+
+	table {
+	  height:100%;
+	  width:100%;
+	  background: red;
+	}
+  </style>
+</head>
+
+<body onload="SetUpStuff()">
+
+  <input type="button" onclick="Bell(1);" value="Play"/>
+
+  <input type="button" onclick="Bell(2);" value="Play"/>
+  <input type="button" onclick="Bell(3);" value="Play"/>
+  <input type="button" onclick="Bell(4);" value="Play"/>
+
+
+</body>
+
+
+
+<script>
+	function SetUpStuff() {
+		SetUpBells();
+	    window.addEventListener("devicemotion", move); 
+	};
+</script>

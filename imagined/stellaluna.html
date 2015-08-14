@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <link href="public/bootstrap.min.css" rel="stylesheet">
+    <link href="public/superscript_css.css" rel="stylesheet">
+	<script src="public/jquery.js"></script>
+
+<body>
+<div class="container">
+
+	<h1>Stellaluna</h1>
+	<h2>Nihar Madhavan and Leah Worthington</h2>
+
+	<br>
+	<h3 id="instructions">To what level of detail would you like to engage with our provided text? Choose carefully.</h3>
+	<br>
+	<div id="howspecific">
+		<b>Less</b><input class="bar" type="range" id="rangeinput" min=1 max=19 value=10 onchange="rangevalue.value=value"/><b>More</b>
+		<br>
+		<button class="btn btn-default" onclick="LoadStory()">Select</button>
+		<br>
+		<br>
+	</div>
+	Value: <b><output id="rangevalue">10</output></b>
+
+	<p id="story"></p>
+
+	<br>
+	<br>
+	<button id="loadform" class="btn btn-default" onclick="LoadForm()" style="display:none">Next</button>
+
+	<form id="loadnextpage" action="all_stories.html" style="display:none">
+	    <input class="btn btn-default" type="submit" value="Next">
+	</form>
+	<div id="questions"></div>
+
+
+
+
+</div>
+
+<script>
+	
+function LoadStory() {
+	var specificity = parseInt(rangeinput.value);
+
+	document.getElementById("instructions").innerHTML = 'Read the following excerpt, and when you are finished reading, press next.';
+	document.getElementById("howspecific").style.display = "none";
+	document.getElementById("loadform").style.display = "inline";
+
+	var specificity = parseInt(rangeinput.value);
+
+	console.log('yo');
+
+	file = "stories/" + specificity + ".txt";
+
+	$("#story").load(file);
+
+
+}
+
+function LoadForm() {
+	document.getElementById("instructions").innerHTML = 'Answer the questions in the form that loads below and submit. After you submit the form, press Next.';
+	
+	document.getElementById("loadform").style.display = "none";
+	document.getElementById("story").style.display = "none";
+	document.getElementById("loadnextpage").style.display = "inline";
+
+	$("#questions").load('questions.html');
+}
+
+</script>
+
+</body>
+</html>

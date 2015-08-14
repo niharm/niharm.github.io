@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Map of Princeton</title>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="static/css/styles.css" rel="stylesheet">
+
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-42130449-1', 'princeton.edu');
+          ga('send', 'pageview');
+
+
+        </script>
+
+
+        <script language="JavaScript" type="text/javascript">
+        if (document.getElementById) {
+        document.writeln('<style type="text/css"><!--')
+        document.writeln('.texter {display:none} @media print {.texter {display:block;}}')
+        document.writeln('//--></style>') }
+
+        function openClose(theID) {
+        if (document.getElementById(theID).style.display == "block") { document.getElementById(theID).style.display = "none" }
+        else { document.getElementById(theID).style.display = "block" } }
+
+        </script>
+
+
+    </head>
+    <body>
+
+<h1></h1>
+<p><a href = "/~madhavan" STYLE="font-weight:normal; font-size:19px; color: gray;">Nihar Madhavan</a><p>
+
+<hr>
+        <a href="/~madhavan/"><div class="logo"><h2 class="logotext">N</h2></div></a>
+<h2></h2>
+
+<h2>A Map of Princeton: Missing Geographic Perspectives</h2>
+
+<p><img style="float:right" src="geography/profile" alt="" title=""/> Princeton publishes a list of undergraduates (the <a href="http://www.princeton.edu/collegefacebook">College Facebook</a>), which any undergraduate can access. For each listing, you can see a Name, Year, and basic information. I scraped this info for 5224 students, which is essentially all of the <a href="http://www.princeton.edu/pub/profile/about/">5,264 undergraduates</a> at Princeton. </p>
+
+<p>Exploring this, I found some interesting and suprising things about Princeton. I started by looking at the <b>locations</b> every person said they are from. For everyone, this gave a city, state, and country.</br></p>
+
+<p>To start with, here's a map of every student at Princeton, with a dot for every person.</p>
+<iframe width='100%' height='520' frameborder='0' src='http://niharmadhavan.cartodb.com/viz/ccf0bbde-6eb3-11e3-b1bd-85e3e265a99b/embed_map?title=true&description=true&search=false&shareable=true&cartodb_logo=true&layer_selector=false&legends=true&scrollwheel=false&sublayer_options=1&sql=SELECT%20*%20FROM%20everybody&zoom=1&center_lat=19.973348786110602&center_lon=28.30078125'></iframe>
+
+<p>While it looks pretty cool, it's easy to see that this <b><span style="color:red">isn't an even distribution</b></span> at all. There's of course a huge emphasis on the US, and there are parts of the world that don't have anyone here.</p>
+
+<p><img style="width=100%" src="geography/missing_perspectives" alt="" title=""/></p>
+
+<p>If we look at students and pop we can get an idea</p>
+
+<p><img style="width=100%" src="geography/continents" alt="" title=""/></p>
+<p><i>Source: <a href="http://en.wikipedia.org/wiki/World_population#Population_by_continent">Wikipedia</a></i></p>
+<p>Basically, Australia is represented <b><span style="color:red">20 times more</b></span> at Princeton than Africa. If the United States was represented the same way Africa is, there would be <b><span style="color:red">10 Americans at Princeton.</b></span></p>
+
+<p>The differences are further stratified if we look at individual countries. According to </p>
+
+
+  <p><a href="geography/countries.html">See the full list here.</a></p> 
+
+</p>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<p>Non mappy map:<img style="width=100%" src="geography/world_map_bse" alt="" title=""/></p>
+
+
+<p>Look at the difference between Europe and Asia:<img style="width=100%" src="geography/europe_and_asia" alt="" title=""/></p>
+
+
+<hr>
+
+<p>&copy; Dec 2013
+<br>
+<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="icons/facebook"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="icons/twitter"></a> </p>
+
+
+
+
+    </body>
+</html>

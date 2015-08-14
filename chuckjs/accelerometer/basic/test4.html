@@ -1,0 +1,128 @@
+<!DOCTYPE html><html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css"></link> 
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script> 
+	<script type="text/javascript" src="../js/log4javascript.js"></script> 
+	<script type="text/javascript" src="../js/q.js"></script> <script type="text/javascript" src="../js/chuck.js"></script> 
+	<script type="text/javascript" src="test.js">
+	</script> 
+
+	<script type="text/javascript"> 
+		require(["chuck"], 
+		function (chuckModule) { 
+		$(document).ready(function () { 
+			var btn = $('#trigger'), 
+			args = ''; 
+			btn.click(function () { 
+				var chuck = new chuckModule.Chuck();
+				console.debug("Executing program"); 
+				chuck.execute(code, args) .done(function () { 
+					console.log("The program finished playing"); 
+				}); 
+			}); 
+		}); 
+	}); 
+	</script> 
+	<script type="text/javascript"> 
+
+	function executeChuck() {
+		var btn = $('#trigger');
+		btn.click();
+
+	};
+
+	</script> 
+
+<script> 
+
+		// Position Variables
+		var ax, ay, az;
+		var dax = 0;
+		var day = 0;
+		var daz = 0;
+
+		// Acceleration
+
+		var delay = 1000;
+
+		var alpha = 0;
+		var beta = 0;
+		var gamma = 0;
+		
+		
+		if (window.DeviceMotionEvent==undefined) {
+			document.getElementById("no").style.display="block";
+			document.getElementById("yes").style.display="none";
+		} 
+
+		else {
+
+			setInterval(function() {
+
+				window.ondevicemotion = function(event) {
+				previousAx = ax;
+				previousAy = ay;
+				previousAz = az;
+
+				ax = Math.round(Math.abs(event.accelerationIncludingGravity.x * 1));
+				ay = Math.round(Math.abs(event.accelerationIncludingGravity.y * 1));
+				az = Math.round(Math.abs(event.accelerationIncludingGravity.z * 1));
+				
+
+				dax = previousAx - ax;
+				day = previousAy - ay;
+				daz = previousAz - az;		
+				if (dax > 3) {
+					console.log(dax);
+					document.getElementById("accelerated").innerHTML = "x-celeration";	
+		var btn = $('#trigger');
+		btn.click();
+				}									
+				if (day > 3) {
+					console.log(day);
+					document.getElementById("accelerated").innerHTML = "y-celeration";	
+		var btn = $('#trigger');
+		btn.click();
+				}									
+				if (daz > 3) {
+					console.log(daz);
+					document.getElementById("accelerated").innerHTML = "z-celeration";
+		var btn = $('#trigger');
+		btn.click();
+				}								
+		
+			}			
+			
+				document.getElementById("dax").innerHTML = "X: " + dax;
+				document.getElementById("day").innerHTML = "Y: " + day;
+				document.getElementById("daz").innerHTML = "Z: " + daz;										
+
+			}, delay);
+} 
+</script> 
+
+
+
+	<title>ChucKJS Chirp</title>
+</head>
+<body>
+	<h1>ChucKJS Chirp</h1>
+	<p>chirp!</p>
+	<pre id="code"></pre>
+	<input id="trigger" type="button" value = "Test">
+	<input id="button" type="button" value="Play" onclick="executeChuck()">
+	
+
+	<div class="box" id="position">
+		<span class="head">Change in Acceleration</span>
+		<span id="dax"></span>
+		<span id="day"></span>
+		<span id="daz"></span>
+	</div>		
+
+	<div>
+		<span id="accelerated"></span>
+	</div>
+	
+</body>
+</html>

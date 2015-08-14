@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Webaudio Bells</title>
+	  <script src="js/buffer-loader.js"></script>
+	  <script src="js/init.js"></script>
+	  <script src="js/bell.js"></script>
+	  <script src="js/move.js"></script>
+
+	    <!-- Bootstrap 
+	    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    -->
+	  <style>
+	  #content {
+	  	display: none;
+	  }
+	  </style>
+</head>
+
+<body onload="SetUpBells()">
+	<div class="container">
+	<h1>Bells</h1>
+		<div id="start_block">
+			<h3>Press start to begin!</h3>
+			<input id="start" type="button" value="Start">
+		</div>
+	<div id='content'>
+		<h3>Uses colors to trigger bell sounds.</h3>
+<!--  		<pre id="code" src="js/bell.js"></pre>
+ -->	<br>
+
+	<div class="box" id="accel">
+		<span class="head">Accelerometer</span>
+		<span id="xlabel"></span>
+		<span id="ylabel"></span>
+		<span id="zlabel"></span>
+		<span id="ilabel"></span>																						
+	</div>		
+
+	<div class="box" id="da">
+		<span class="head">Change in Acceleration</span>
+		<span id="dax"></span>
+		<span id="day"></span>
+		<span id="daz"></span>
+	</div>		
+
+	<div class="box" id="gyro">
+		<span class="head">Gyroscope</span>
+		<span id="alphalabel"></span>			
+		<span id="betalabel"></span>
+		<span id="gammalabel"></span>
+	</div>
+
+	<div class="box" id="gyro">
+		<span class="head">Rounded Gyroscope</span>
+		<span id="alpharoundedlabel"></span>			
+		<span id="betaroundedlabel"></span>
+		<span id="gammaroundedlabel"></span>
+	</div>
+
+	<div class="box" id="accelerated">
+		<span id="accelerated"></span>
+	</div>
+
+	</div>
+
+</div>
+	<script> 
+		// run on page load
+		var button = document.getElementById('start');
+
+		var onClick = function() {
+		    SetUpBells();
+		    document.getElementById('start_block').style.display = 'none';
+		    document.getElementById('content').style.display = 'block';
+		};
+
+		button.addEventListener('click', onClick, false);
+	</script>
+</body>
+</html>

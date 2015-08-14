@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <link href="public/bootstrap.min.css" rel="stylesheet">
+    <link href="public/superscript_css.css" rel="stylesheet">
+	<script src="public/jquery.js"></script>
+
+<body>
+<div class="container">
+
+	<h1>Stellaluna</h1>
+	<h3>Nihar Madhavan and Leah Worthington</h3>
+	<br>
+
+	<div id="slider">
+	<h3>Thanks! You're done! Please explore how the story changes below!</h3>
+	<br>
+	<br>
+	<b>Less</b><input class="bar" type="range" id="rangeinput" min=1 max=19 value=10 onchange="LoadStory();"/><b>More</b>
+	<br>
+	<br>
+	<p id="story">
+	</p>
+</div>
+
+
+
+<script>
+
+
+function LoadStory() {
+	var specificity = parseInt(rangeinput.value);
+
+	console.log('yo');
+
+	file = "stories/" + specificity + ".txt";
+
+	$("#story").load(file);
+
+
+}
+
+</script>
+
+
+
+</body>
+</html>

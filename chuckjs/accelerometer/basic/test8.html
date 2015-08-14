@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- uses one button to play first and then gets triggered by a timeout.
+ -->
+<html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css"></link> 
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script> 
+	<script type="text/javascript" src="../js/log4javascript.js"></script> 
+	<script type="text/javascript" src="../js/q.js"></script> <script type="text/javascript" src="../js/chuck.js"></script> 
+	<script type="text/javascript" src="test.js">
+	</script> 
+
+	<script type="text/javascript"> 
+		require(["chuck"], 
+		function (chuckModule) { 
+		$(document).ready(function () { 
+			var btn = $('#button'), 
+			trigger = $('#trigger'),
+			chuck,
+			args = ''; 
+
+			btn.click(function () { 
+				chuck = new chuckModule.Chuck();
+				console.debug("Executing program"); 
+				chuck.execute(code, args) .done(function () { 
+				document.getElementById("status").innerHTML = "set up";
+
+			}); 
+
+			trigger.click(function () { 
+				chuck.execute(code, args) .done(function () { 
+				document.getElementById("status").innerHTML = "playing";
+				console.log("The program finished playing"); 
+				document.getElementById("status").innerHTML = "played";
+				}); 
+			}); 
+		}); 
+	}); 
+
+	</script> 
+
+	<script type="text/javascript"> 
+
+	setTimeout(function() {
+		var btn = $('#trigger');
+		document.getElementById("status").innerHTML = "clicking";
+		btn.click();
+
+	}, 6000);
+
+	</script> 
+
+
+	<title>ChucKJS Chirp</title>
+</head>
+<body>
+	<h1>ChucKJS Chirp</h1>
+	<p>chirp!</p>
+	<pre id="code"></pre>
+	<input id="button" type="button" value="Start">
+	<input id="trigger" type="button" value="Trigger" display="none">
+	<input id="triggerclicker" type="button" value="Trigger Clicker" onclick="clickTrigger()">
+	<span id="status"></span>
+
+</body>
+</html>

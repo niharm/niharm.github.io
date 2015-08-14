@@ -1,0 +1,1 @@
+var code = "// patch\nSinOsc s => dac;\n\n// gain\n.4 => s.gain;\n\nme.arg(0) => string test_string;\nme.arg(0) => int input;\n\n220 + input * 10 => float freq;\nfreq => s.freq;\n\n.5::second => now;\n"

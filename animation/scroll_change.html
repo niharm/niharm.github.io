@@ -1,0 +1,11 @@
+<script>
+var sdegree = 0;
+
+$(window).scroll(function() {
+
+    sdegree ++ ;
+    sdegree = sdegree + 3 ;
+    var srotate = "rotate(" + sdegree + "deg)";
+    $("img").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
+});
+</script>

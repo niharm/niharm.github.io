@@ -1,0 +1,33 @@
+<!DOCTYPE html><html>
+<head> 
+	<link rel="stylesheet" type="text/css" href="../stylesheets/main.css"></link> 
+	<script type="text/javascript" src="../js/jquery-1.10.2.js"></script> 
+	<script type="text/javascript" src="../js/log4javascript.js"></script> 
+	<script type="text/javascript" src="../js/q.js"></script> <script type="text/javascript" src="../js/chuck.js"></script> 
+	<script type="text/javascript" src="test.js">
+	</script> 
+
+	<script type="text/javascript"> 
+	function executeChuck() {
+		require(["chuck"], 
+			function (chuckModule) { 
+				var btn = $('#button'), 
+				args = ''; 
+				var chuck = new chuckModule.Chuck(); 
+				console.debug("Executing program");
+				chuck.execute(code, args) .done(function () { 
+					console.log("The program finished playing"); 
+			}); 
+		}); 
+	};
+
+	</script> 
+	<title>ChucKJS Chirp</title>
+</head>
+<body>
+	<h1>ChucKJS Chirp</h1>
+	<p>chirp!</p>
+	<pre id="code"></pre>
+	<input id="button" type="button" value="Play" onclick="executeChuck()">
+</body>
+</html>
