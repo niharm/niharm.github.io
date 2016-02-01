@@ -21,7 +21,7 @@
 
     </head>
     <body>
-        <a href="/~madhavan/"><div class="logo"><h2 class="logotext">N</h2></div></a>
+        <a href="//"><div class="logo"><h2 class="logotext">N</h2></div></a>
        <h1>Hi!</h1>
         <br />
         <h2>
@@ -35,7 +35,7 @@ I'm a student at Princeton studying Computer Science.
   
           <br /><br />
         <ul class="posts-list">
-            <li><a href ="/~madhavan/TAandTCAnalysis">An analysis of the campus popular Tiger Admirers and Tiger Compliments</li>
+            <li><a href ="/TAandTCAnalysis">An analysis of the campus popular Tiger Admirers and Tiger Compliments</li>
   <li><a href ="https://github.com/niharm/facebook_feed_scraper">A tool to easily scrape and analyze facebook feeds with FeedScraper</li>
   <li><a href ="http://ewb.princeton.edu/site/peru-program">Building a water system in Peru with Engineers Without Borders</li>
         </ul>
