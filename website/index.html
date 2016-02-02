@@ -6,8 +6,8 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-        <link href="static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="static/css/styles.css" rel="stylesheet">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/styles.css" rel="stylesheet">
 
 
         <script>
@@ -40,15 +40,22 @@
     <body>
 
 <h1></h1>
-<p><a href = "/~madhavan" STYLE="font-weight:normal; font-size:19px; color: gray;">Nihar Madhavan</a><p>
+<p><a href = "/" STYLE="font-weight:normal; font-size:19px; color: gray;">Nihar Madhavan</a><p>
 
 <hr>
-        <a href="//"><div class="logo"><h2 class="logotext">N</h2></div></a>
+        <a href="/"><div class="logo"><h2 class="logotext">N</h2></div></a>
 <h2></h2>
+
+<div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Note:</span>
+  Princeton OIT stopped giving undergraduate students website space like this starting with the class of 2017. 
+</div>
 
 <h2>How to Set Up Your Princeton Website!</h2>
 
 <p style="font-family: 'Shadows Into Light';font-size:40px;text-align:center">(www.<span style="color:orange">princeton</span>.edu/<span style="font-family: 'Droid Sans'">~</span><span style="color: #4a86e8">netid</span>)</p>
+
 
 <p>A few people have asked me how to go about setting up their own through Princeton -- OIT’s resources are a bit hard to parse through for this topic, so I figured it would be worth it to write a piece on making a Princeton-hosted website!</p>
 
@@ -58,7 +65,7 @@
 
 <p>Here’s a little picture:</p>
 
-<p align="middle"><img style="width=100%" src="website/cloud" alt="" title=""/></p>
+<p align="middle"><img style="width=100%" src="cloud.png" alt="" title=""/></p>
 
 <h3>The Process</h3>
 <p>
@@ -73,10 +80,10 @@
             <div id="mac" class="texter"><p>For Mac, we connect to our public_html folder directly. (Warning: don't connect to your H: drive!) The simplest way to connect from a Mac is to connect through Finder. Follow the instructions below or in a little more detail here, from OIT <a href="http://helpdesk.princeton.edu/kb/display.plx?ID=9847">here</a>.</p>
 
               <p>Open Finder, click Go in the top menu, and click "Connect to Server"</p>
-             <p align="middle"><img style="width=100%" src="website/mac_connect" alt="" title=""/></p>
+             <p align="middle"><img style="width=100%" src="website/mac_connect.png" alt="" title=""/></p>
 
               <p>In the dialog that pops up, enter "smb://<span style:"color:orange">netid</span>@files.princeton.edu/home/public_html/<span style:"color:orange">netid</span>"</p>
-             <p align="middle"><img style="width=100%" src="website/mac_address" alt="" title=""/></p>
+             <p align="middle"><img style="width=100%" src="website/mac_address.png" alt="" title=""/></p>
 
              </div>
           </li>
@@ -99,11 +106,11 @@
     </p></li>
     <li>
 
-      <p>Now, you should be looking at a (probably empty) folder of your public_html folder. Anything you put in it will appear on the world wide web! If you put a file in your public_html folder, it will appear at <span style="font-family:'Courier New';">www.princeton.edu/~<span style="color:orange">netid</span>/filename</span>. For example, if I put the file "adorable_kitten.jpg" in my folder, you can see it <a href="http://www.princeton.edu/adorable_kitten.jpg">here</a>!</p>
+      <p>Now, you should be looking at a (probably empty) folder of your public_html folder. Anything you put in it will appear on the world wide web! If you put a file in your public_html folder, it will appear at <span style="font-family:'Courier New';">www.princeton.edu/~<span style="color:orange">netid</span>/filename</span>. For example, if I put the file "adorable_kitten.jpg" in my folder, you can see it <a href="adorable_kitten.jpg">here</a>!</p>
 
       <p>Try it with a file and make sure it works!</p>
 
-      <p align="middle"><img style="width=100%" src="website/kitten_in_folder" alt="" title=""/></p>
+      <p align="middle"><img style="width=100%" src="kitten_in_folder.png" alt="" title=""/></p>
 
     </li>
 
@@ -189,7 +196,7 @@
       <div id="connection_error" class="texter">
         <p>You may be looking at something like this:</p>
 
-        <p align="middle"><img style="width=100%" src="website/connection_error" alt="" title=""/></p>
+        <p align="middle"><img style="width=100%" src="connection_error.png" alt="" title=""/></p>
 
         <p>Double check that you have set up your VPN if you are not on Princeton's wifi (<a href="http://helpdesk.princeton.edu/kb/display.plx?ID=9278">Mac</a>|<a href="http://helpdesk.princeton.edu/kb/display.plx?ID=9987">Windows</a>). Make sure your VPN is currently connected and has not disconnected. Reconnect and make sure you type everything exactly -- follow OIT's instructions (<a href="http://helpdesk.princeton.edu/kb/display.plx?ID=9847">Mac</a>|<a href="http://helpdesk.princeton.edu/kb/display.plx?ID=9347">Windows</a>).</p>
 
@@ -203,7 +210,7 @@
       <div id="403" class="texter">
         <p>You may be looking at something like this:</p>
 
-        <p align="middle"><img style="width=100%" src="website/403" alt="" title=""/></p>
+        <p align="middle"><img style="width=100%" src="403.png" alt="" title=""/></p>
 
         <p>Somehow, the permissions for your website became messed up, and your folder is preventing anyone else from reading it. Luckily, we can fix this!</p>
 
@@ -213,7 +220,7 @@
 
         <p>Now, we should be looking at our folder -- something like this (type <span style="font-family:'Courier New';">ls</span> to see the files):</p>
 
-        <p align="middle"><img style="width=100%" src="website/arizona" alt="" title=""/></p>
+        <p align="middle"><img style="width=100%" src="arizona.png" alt="" title=""/></p>
 
         <p>Next, type <span style="font-family:'Courier New';">cd /PUBLIC_HTML/user2a/</span>. This is switching to the actual folder which OIT connects to the internet (warning: there are about 10,000 folders here -- do not type 'ls' or your terminal may freeze!).</p>
 
@@ -236,7 +243,8 @@
 
 <p>&copy; Dec 2013
 <br>
-<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="icons/facebook"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="icons/twitter"></a> </p>
+<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="../icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="../icons/facebook.png"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="../icons/twitter.png"></a> </p>
+
 
 
 

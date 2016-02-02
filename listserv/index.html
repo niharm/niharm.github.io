@@ -6,8 +6,8 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-        <link href="//static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//static/css/styles.css" rel="stylesheet">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/styles.css" rel="stylesheet">
 
 
 <script>
@@ -26,7 +26,7 @@
     <body>
 
 <h1></h1>
-<p><a href = "/~madhavan" STYLE="font-weight:normal; font-size:19px; color:gray;">Nihar Madhavan</a><p>
+<p><a href = "/" STYLE="font-weight:normal; font-size:19px; color:gray;">Nihar Madhavan</a><p>
 
 <hr>
 <a href="//"><div class="logo"><h2 class="logotext">N</h2></div></a>
@@ -42,23 +42,23 @@
 
 <p>I scraped 2026 emails over 48 days, from October 14, 2013 to November 29, 2013. Here's the breakdown:</p>
 
-<p align="middle"><img style="width=100%" src="overall_numbers" alt="" title=""/></p>
+<p align="middle"><img style="width=100%" src="overall_numbers.png" alt="" title=""/></p>
 
 <p>Whitman takes the lead with around 11 emails a day! Whitman and Wilson together account for almost half of all emails!</p>
 
   <p>Overall, there are about <b>3800 subscribers</b> (mostly undergrads) to the listservs. That’s nearly three-fourths of the <b>5300 Princeton undergrads</b><sup><a id="footnote-2-ref" href="#footnote-2">[2]</a></sup>! From these, <b>863 sent emails</b> in this time period, which is about 23% of those on the listservs. That leaves Princeton with three circles:</p>
 
-<p align="middle"><img style="height=200px" src="venn_diagram" alt="" title="" align="middle"/></p>
+<p align="middle"><img style="height=200px" src="venn_diagram.png" alt="" title="" align="middle"/></p>
 
 <p>I unfortunately couldn't find any data to prove one of my suspicions:</p>
 
-<p align="middle"><img style="width=100%" src="venn_diagram_readers" alt="" title=""/></p>
+<p align="middle"><img style="width=100%" src="venn_diagram_readers.png" alt="" title=""/></p>
 
 <h3>What Do We Email About?</h3>
 
 <p>The subject line of an email gives you a quick summary of what the email’s about. Collecting the 2026 subject lines, I got 12,000 words on what exactly drives Princeton students  to email six hundred other students (hint: it’s campus events and lost things). Here are the top few words that emerged:</p>
 
-<p align="middle"><img style="width=100%" src="top_subject_words" alt="" title=""/></p>
+<p align="middle"><img style="width=100%" src="top_subject_words.png" alt="" title=""/></p>
 
 <p>The top  words confirm one of my suspicions: desperate Princeton student groups recruit just like desperate Princeton students: </p>
 
@@ -68,11 +68,11 @@
 
 <p>Some other interesting trends emerged when I filtered by day. For instance, Sunday, predictably, is all lost coats from Saturday night and worship. </p>
 
-<p align="middle"><img style="width=100%" src="top_sunday_words" alt="" title=""/></p>
+<p align="middle"><img style="width=100%" src="top_sunday_words.png" alt="" title=""/></p>
 
 <p>Also, by looking at which days of the week are mentioned in email subjects, we can figure out when events are happening on campus. For instance, a subject might be "Come to the ___ Show this Friday!". Based on this, here is when things happen:</p> 
 
-<p><img style="width=100%" src="days_in_subject" alt="" title=""/></p>
+<p><img style="width=100%" src="days_in_subject.png" alt="" title=""/></p>
 
 <p>Rebecca Black had it right.  Also, if you want your event to stand out, put it on a Tuesday.</p>
 
@@ -87,16 +87,16 @@
 
 <p>There's a pretty consistent pattern there by week! Let's take a closer look. Here’s the days of the week that we send emails:</p> 
 
-<p><img style="width=100%" src="days_emails_sent" alt="" title=""/></p>
+<p><img style="width=100%" src="days_emails_sent.png" alt="" title=""/></p>
 
 <p>Turns out emails follow our workweek pretty well, with most emails from Monday to Friday, with a little rush on Monday to catch up from all the emails we should have been sending over the weekend. Interestingly, from above, Monday and Tuesday have among the least events happening, but the most emails sent. Wait, that actually makes a lot of sense.</p> 
 
 <p>Also, we can break it down all the way and look at exactly what time each email was sent:</p> 
 
-<p><img style="width=100%" src="emails_per_hour" alt="" title=""/></p>
+<p><img style="width=100%" src="emails_per_hour.png" alt="" title=""/></p>
 
 <p>Hold on, that’s almost a perfect sine wave! Now, we can perfectly plot the <a href="http://en.wikipedia.org/wiki/Circadian_rhythm">Circadian Rhythm</a> of a Princeton student. </p> 
-<p><img style="width=100%" src="circadian" alt="" title=""/></p>
+<p><img style="width=100%" src="circadian.png" alt="" title=""/></p>
 
 <p>Interestingly, the peaks and lows correspond pretty well with a <a href = "http://upload.wikimedia.org/wikipedia/commons/3/30/Biological_clock_human.svg">"standard" rhythm</a>, though our deepest sleep is three hours afterward. It also gives a whole new validation to the phrase <a href ="http://en.wikipedia.org/wiki/It's_Five_O'Clock_Somewhere">“It’s 5 o’clock somewhere. </a></p> 
 
@@ -106,13 +106,13 @@
 
 <p>But the top ten people doesn't really tell you how spammy a listserv is overall; instead, I used <b>Proofpoint</b>! ProofPoint is the (capricious) spam filter that Princeton email uses. If you look at an email's full text (which includes a lot more information than just the email), you'll see something that looks like this:</p>
 
-<p><img style="width=100%" src="suspectscore" alt="" title=""/></p><p>
+<p><img style="width=100%" src="suspectscore.png" alt="" title=""/></p><p>
 The "suspect score" is a number ranging from 0 to 100 that tells you how suspicious this email looks to ProofPoint. Too high a number and it'll block the message. 
 </p><p>
 I collected the suspect scores of every email, and averaged it by listserv, seeking to determine once and for all which one is the spammiest. 
 </p>
 
-<p><img style="width=100%" src="average_suspect_score" alt="" title=""/></p>
+<p><img style="width=100%" src="average_suspect_score.png" alt="" title=""/></p>
 
 <p>And the least spammy listserv is... </p>
 
@@ -152,7 +152,8 @@ I collected the suspect scores of every email, and averaged it by listserv, seek
 
 <p>&copy; 2013
 <br>
-<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="/icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="/icons/facebook"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="/icons/twitter"></a> </p>
+<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="../icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="../icons/facebook.png"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="../icons/twitter.png"></a> </p>
+
 
 
 

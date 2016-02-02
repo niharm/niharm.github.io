@@ -6,8 +6,8 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
-        <link href="//static/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//static/css/styles.css" rel="stylesheet">
+        <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../static/css/styles.css" rel="stylesheet">
 
 
         <script>
@@ -40,10 +40,10 @@
     <body>
 
 <h1></h1>
-<p><a href = "/~madhavan" STYLE="font-weight:normal; font-size:19px; color: gray;">Nihar Madhavan</a><p>
+<p><a href = "/" STYLE="font-weight:normal; font-size:19px; color: gray;">Nihar Madhavan</a><p>
 
 <hr>
-        <a href="//"><div class="logo"><h2 class="logotext">N</h2></div></a>
+        <a href="/"><div class="logo"><h2 class="logotext">N</h2></div></a>
 <h2></h2>
 
 <h2>A Map of Princeton: Missing Geographic Perspectives</h2>
@@ -60,7 +60,7 @@
 
 <p>While the map above looks pretty cool, it's easy to see that this <b><span style="color:red">isn't an even distribution</b></span> at all. There's of course a huge emphasis on the US, and there are parts of the world that don't have anyone here. There's a whole oval missing from the Princeton international community:</p>
 
-<p><img style="width=100%" src="missing_perspectives" alt="" title=""/></p>
+<p><img style="width=100%" src="missing_perspectives.png" alt="" title=""/></p>
 
 <p>We can quantify this distribution a little better. All things being equal, we would expect the number of students from a region at Princeton to be proportional to population of that region. (Basically, if region A had double the population as region B, we would expect twice as many students at Princeton from A.) Obviously, this is not the case.</p>
 
@@ -68,7 +68,7 @@
 
 <p>For instance, let's take a look at representation by continent:
 
-<p><img style="width=100%" src="continents" alt="" title=""/></p>
+<p><img style="width=100%" src="continents.png" alt="" title=""/></p>
 <p align=right><i>Source: <a href="http://en.wikipedia.org/wiki/World_population#Population_by_continent">Wikipedia</a></i></p>
 <p>Basically, Australia is proportionally represented <span style="color:red">20 times more</span> at Princeton than Africa. If the United States was represented the same way Africa is, there would be <span style="color:red">10 Americans at Princeton.</span> (Of course, this is due to a range of factors, not least of which is English-speaking ability).</b></span></p>
 
@@ -77,7 +77,7 @@
 <p>The distribution gap is further stratified if we look at individual countries. The College Facebook indicates that there is an average of 8 Princeton undergraduates representing each of 85 countries (excluding the US). Using the same method as above, we can see which ones are the most and least proportionally represented.</p>
 
 
-<p><a href="countries.html"><img style="width=100%" src="country_representation" alt="" title=""/></a><i>See the full list <a href="countries.html">here.</a>  <a href="http://countrycode.org/">(Source)</a> Credit to Luke Cheng '14 for coming up with a <a href="global_heat_map">global heat map</a> using the absolute numbers of students in Princeton (disregarding population).</i></p>
+<p><a href="countries.html"><img style="width=100%" src="/country_representation.png" alt="" title=""/></a><i>See the full list <a href="countries.html">here.</a>  <a href="http://countrycode.org/">(Source)</a> Credit to Luke Cheng '14 for coming up with a <a href="global_heat_map">global heat map</a> using the absolute numbers of students in Princeton (disregarding population).</i></p>
 
 
   <p>Whoa--the US isn't actually the most represented proportionally! Even if it's only one person, Monaco wins out. (Monaco has the <a href="http://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal)_per_capita">highest per capita GDP</a> in the world.) Other tiny, rich countries like Bermuda, Qatar, Singapore, Brunei and Hong Kong also top out the list.</p>
@@ -92,16 +92,16 @@
 
 <p>Crunching the numbers, the regional bias is <span style="color:red">extreme</span>. :</p>
 
-<p><a href="states.html"><img style="width=100%" src="state_representation_list" alt="" title=""/></a><i>See the full list <a href="states.html">here.</a></i></p>
+<p><a href="states.html"><img style="width=100%" src="state_representation_list.png" alt="" title=""/></a><i>See the full list <a href="states.html">here.</a></i></p>
 
 <p>The range is huge--<span style="color:red">Qatar, Singapore, and Hong Kong are all better proportionally better represented than the bottom 10 states</span>. The top 13 countries are all better represented than North Dakota! To better see the regional differences, here's a map dividing states into three categories:</p>
 
-<p><a href="states.html"><img style="width=100%" src="state_representation_map" alt="" title=""/></a></p>
+<p><a href="states.html"><img style="width=100%" src="state_representation_map.png" alt="" title=""/></a></p>
 
 <p>The regions are strikingly clear. The Northeast is well-represented at Princeton, while the Midwest is in comparision neglected. The Pacific coast and South both show moderate representation.</p>
 
 <p>Among other factors, this is a symptom of an urban bias at Princeton -- this map corresponds very well to a map of the most urban areas of the US:<sup><a id="footnote-2-ref" href="#footnote-2">[2]</a></sup></p>
-<p><img style="width=100%" src="state_urban_comparison" alt="" title=""/></p>
+<p><img style="width=100%" src="state_urban_comparison.png" alt="" title=""/></p>
 
 
 <h3>Conclusion</h3>
@@ -131,7 +131,8 @@
 
 <p>&copy; Dec 2013
 <br>
-<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="/icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="/icons/facebook"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="/icons/twitter"></a> </p>
+<a href="mailto:madhavan@princeton.edu"><img style="height:25px" src="../icons/gmail.png"></a> <a href="http://www.facebook.com/niharm"><img style="height:25px" src="../icons/facebook.png"></a>  <a href="http://www.twitter.com/niharmadhavan"><img style="height:25px" src="../icons/twitter.png"></a> </p>
+
 
 
 
