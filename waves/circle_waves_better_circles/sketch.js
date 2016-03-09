@@ -177,7 +177,7 @@ function drawCircles(){
       stroke(circleColor);
       noFill();
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
-      circles[i][3] += (windowWidth / 14);
+      circles[i][3] += (windowWidth / (maxCircles/2));
       ++circles[i][4];
     }
     else
