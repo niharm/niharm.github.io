@@ -35,29 +35,28 @@ function setup() {
 }
 
 
-
 function draw() {
 
-  background(50, 51);
+  background(50, 80);
 
   // left line
   stroke(233,246,121);
-  strokeWeight(15);
+  strokeWeight(40);
   line(0,height,0,0);
 
   // top line
   stroke(237,34,93);
-  strokeWeight(15);
+  strokeWeight(40);
   line(0,0,width,0);
 
   // right line
   stroke(37,165,95);
-  strokeWeight(15);
+  strokeWeight(40);
   line(width,height,width,0);
 
   // bottom line
   stroke(52,100,115);
-  strokeWeight(15);
+  strokeWeight(40);
   line(width,height,0,height);
 
 

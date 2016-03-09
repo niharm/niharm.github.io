@@ -32,24 +32,41 @@
 <p>stiffness: <span id="stiffness"></span></p>
 <input type="range" id="stiffnessRange" value="0.05" min="0" max="0.3" step="0.01" onchange="updateValues();">
 
+<p>accelerationThreshold: <span id="accelerationThreshold"></span></p>
+<input type="range" id="accelerationThresholdRange" value="10" min="0" max="30" onchange="updateValues();">
+
+<p>input ring size: <span id="inputRingSize"></span></p>
+<input type="range" id="inputRingRange" value="40" min="0" max="300" step="10" onchange="updateValues();">
+
+
 
 <script>
     function updateValues() {
-      var s = document.getElementById("sensitivityRange").value;
+      var x;
+
+      x = document.getElementById("sensitivityRange").value;
       document.getElementById("sensitivity").innerHTML = s;
-      sensitivity = s;
+      sensitivity = x;
 
-      var b = document.getElementById("bouncinessRange").value;
+      x= document.getElementById("bouncinessRange").value;
       document.getElementById("bounciness").innerHTML = b;
-      bounciness = b;       
+      bounciness = x;       
 
-      var d = document.getElementById("dampingRange").value;
+      x = document.getElementById("dampingRange").value;
       document.getElementById("damping").innerHTML = d;
-      damping = d;       
+      damping = x;       
 
-      var stiff = document.getElementById("stiffnessRange").value;
-      document.getElementById("stiffness").innerHTML = stiff;
-      stiffness = stiff;  
+      x = document.getElementById("stiffnessRange").value;
+      document.getElementById("stiffness").innerHTML = x;
+      stiffness = x;  
+
+      x = document.getElementById("accelerationThresholdRange").value;
+      document.getElementById("accelerationThreshold").innerHTML = x;
+      min_acceleration_threshold = x;  
+
+      x = document.getElementById("inputRingRange").value;
+      document.getElementById("inputRingSize").innerHTML = x;
+      input_ring_size = x;  
 
     }
 
