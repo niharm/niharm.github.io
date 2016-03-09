@@ -11,10 +11,10 @@ function Particle(x,y) {
   this.update = function(additional_acceleration) {
     this.velocity.add(this.acceleration);
 
-  //  if (((this.position.x-this.target.x) < width/8) &&  ((this.position.y-this.target.y) < height/8)) {
+    if (((this.position.x-this.target.x) < width/8) &&  ((this.position.y-this.target.y) < height/8)) {
       this.velocity.add(additional_acceleration);
       //this.velocity.limit(this.maxspeed); // Limit speed
-  //  };
+    };
 
     this.position.add(this.velocity);
     this.acceleration.mult(0);  // Reset acceleration to 0 each cycle

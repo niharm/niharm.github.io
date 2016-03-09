@@ -1,8 +1,8 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
 var stiffness = 0.05;
-var damping = 0.05;
-var bounciness = 0.5;
+var damping = 0.1;
+var bounciness = 0.8;
 var sensitivity = 10;
 var min_acceleration_threshold = 10;
 
@@ -13,6 +13,8 @@ var bellOvertones = [1.0, 7.279, 9.405, 13.505];
 var detune = .2;
 var s = [];
 var e = [];
+
+var maxCircles = 40;
 
 var circles = [];
 var p, acceleration;
@@ -32,32 +34,42 @@ function setup() {
   initSound();
 }
 
+function update() {
+  sensitivity = document.getElementById("sensitivityRange").value;
+  bounciness = document.getElementById("bouncinessRange").value;
+  damping = document.getElementById("dampingRange").value;
+  stiffness = document.getElementById("sensitivityRange").value;
+}
+
+
+
+
 function draw() {
 
-  background(51,50);
+  background(50, 51);
 
- // if(phoneShaked(min_acceleration_threshold)){
+  if(phoneShaked(min_acceleration_threshold)){
 
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-  //  p.velocity.x += rotationY;
-  //  p.velocity.y += rotationX;
+    // p.velocity.x += sensitivity*accelerationX;
+    // p.velocity.y += sensitivity*accelerationY;
 
     // position control
-    // p.position.x += accelerationX;
-    // p.position.y += accelerationY;
+    // p.position.x += sensitivity*accelerationX;
+    // p.position.y += sensitivity*accelerationY;
 
     // acceleration control
-     acceleration.x = rotationY;
-     acceleration.y = rotationX;
-//  }
+     acceleration.x = sensitivity*accelerationX;
+     acceleration.y = sensitivity*accelerationY;
+  }
 
-  //else{
-    // for acceleration control, reset acceleration to 0
-  //  acceleration.x = 0;
-  //  acceleration.y = 0;
-//  }
+  else{
+  //   for acceleration control, reset acceleration to 0
+     acceleration.x = 0;
+     acceleration.y = 0;
+  }
 
   p.steer(stiffness, damping);
   p.update(acceleration);
@@ -126,7 +138,7 @@ function initSound(){
 
 function makeSound(wall,position,velocity)
 {
-  circles.push([wall,position.x,position.y,0]);
+  circles.push([wall,position.x,position.y,0,0,0]);
 
   var currentVelTotal = (abs(velocity.x) + abs(velocity.y));
 
@@ -139,6 +151,8 @@ function makeSound(wall,position,velocity)
     e[wall][i].play(s[wall][i], 0);
   }
 
+  console.log(bounciness);
+
 }
 
 function drawCircles(){
@@ -149,27 +163,34 @@ function drawCircles(){
     var circleSize = thisCircle[3];
     var circleWall = thisCircle[0];
     var circleColor;
-    if (circleSize < (sqrt(2) * width *2))
+
+    // calculate opacity based on number of circles so far
+    var numCircles = thisCircle[4];
+    var opacity = 1 - numCircles/maxCircles;
+    
+    // draws up to maxCircles circles
+    if (numCircles < maxCircles)
     {
-      strokeWeight(5);
+      strokeWeight(3);
       switch(circleWall){
         case 0:
-          circleColor = '#e9f679';
+          circleColor = 'rgba(233,246,121,' + opacity + ')';
           break;
         case 1:
-          circleColor = '#9bdf46';
+          circleColor = 'rgba(155,223,70,' + opacity + ')';
           break;
         case 2:
-          circleColor = '#25a55f';
+          circleColor = 'rgba(37,165,95,' + opacity + ')';
           break;
         case 3:
-          circleColor = '#346473';
+          circleColor = 'rgba(52,100,115,' + opacity + ')';
           break;
       }
       stroke(circleColor);
       noFill();
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
-      circles[i][3] += (windowWidth / 10);
+      circles[i][3] += (windowWidth / (maxCircles/2));
+      ++circles[i][4];
     }
     else
     {

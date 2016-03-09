@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Spring</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="particle.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+    <script src="particle.js" type="text/javascript"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+
+<h3>Bell Ball -- Adjustable</h3>
+
+<p>sensitivity: <span id="sensitivity"></span></p>
+<input type="range" id="sensitivityRange" value="10" min="0" max="30" onchange="updateValues();">
+
+<p>bounciness: <span id="bounciness"></span></p>
+<input type="range" id="bouncinessRange" value=".8" min="0" max="1" step=".1" onchange="updateValues();">
+
+<p>damping: <span id="damping"></span></p>
+<input type="range" id="dampingRange" value=".1" min="0" max="1" step=".1" onchange="updateValues();">
+
+<p>stiffness: <span id="stiffness"></span></p>
+<input type="range" id="stiffnessRange" value="0.05" min="0" max="0.2" step="0.01" onchange="updateValues();">
+
+
+<script>
+    function updateValues() {
+      var s = document.getElementById("sensitivityRange").value;
+      document.getElementById("sensitivity").innerHTML = s;
+      sensitivity = s;
+
+      var b = document.getElementById("bouncinessRange").value;
+      document.getElementById("bounciness").innerHTML = b;
+      bounciness = b;       
+
+      var d = document.getElementById("dampingRange").value;
+      document.getElementById("damping").innerHTML = d;
+      damping = d;       
+
+      var stiff = document.getElementById("stiffnessRange").value;
+      document.getElementById("stiffness").innerHTML = stiff;
+      stiffness = stiff;  
+
+    }
+
+
+</script>
+
+  </body>
+</html>

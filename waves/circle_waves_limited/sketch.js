@@ -38,13 +38,13 @@ function draw() {
 
   background(50, 51);
 
- // if(phoneShaked(min_acceleration_threshold)){
+  if(phoneShaked(min_acceleration_threshold)){
 
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    p.velocity.x += sensitivity*accelerationX;
-    p.velocity.y += sensitivity*accelerationY;
+    // p.velocity.x += sensitivity*accelerationX;
+    // p.velocity.y += sensitivity*accelerationY;
 
     // position control
     // p.position.x += sensitivity*accelerationX;
@@ -55,11 +55,11 @@ function draw() {
     // acceleration.y = sensitivity*accelerationY;
 //  }
 
-//  else{
-    // for acceleration control, reset acceleration to 0
-    // acceleration.x = 0;
-    // acceleration.y = 0;
-//  }
+  else{
+     for acceleration control, reset acceleration to 0
+     acceleration.x = 0;
+     acceleration.y = 0;
+  }
 
   p.steer(stiffness, damping);
   p.update(acceleration);

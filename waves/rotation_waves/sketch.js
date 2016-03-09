@@ -2,7 +2,7 @@
 
 var stiffness = 0.05;
 var damping = 0.05;
-var bounciness = 0.5;
+var bounciness = 0.8;
 var sensitivity = 10;
 var min_acceleration_threshold = 10;
 
@@ -41,16 +41,16 @@ function draw() {
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    p.velocity.x += rotationY;
-    p.velocity.y += rotationX;
+  //  p.velocity.x += rotationY;
+  //  p.velocity.y += rotationX;
 
     // position control
     // p.position.x += accelerationX;
     // p.position.y += accelerationY;
 
     // acceleration control
-    // acceleration.x = rotationY;
-  //   acceleration.y = rotationX;
+     acceleration.x = rotationY;
+     acceleration.y = rotationX;
 //  }
 
   //else{
