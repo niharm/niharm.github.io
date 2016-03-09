@@ -36,7 +36,7 @@ function setup() {
 
 function draw() {
 
-  background(30,51);
+  background(50);
 
  // if(phoneShaked(min_acceleration_threshold)){
 
@@ -150,12 +150,12 @@ function drawCircles(){
     var thisCircle = circles[i];
     var circleSize = thisCircle[3];
     var circleWall = thisCircle[0];
-    var numCircles = thisCircle[4];
     var circleColor;
 
     // calculate opacity based on number of circles so far
+    var numCircles = thisCircle[4];
     var opacity = 1 - numCircles/maxCircles;
-
+    
     // draws up to maxCircles circles
     if (numCircles < maxCircles)
     {
@@ -182,7 +182,6 @@ function drawCircles(){
     }
     else
     {
-      console.log(thisCircle[4]);
       circles.splice(i,1);
     }
   }
