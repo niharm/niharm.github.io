@@ -36,7 +36,7 @@ function setup() {
 
 function draw() {
 
-  background(50);
+  background(50, 51);
 
  // if(phoneShaked(min_acceleration_threshold)){
 

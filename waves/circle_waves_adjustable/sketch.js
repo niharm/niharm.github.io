@@ -1,8 +1,8 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
 var stiffness = 0.05;
-var damping = 0.1;
-var bounciness = 0.8;
+var damping = 0.05;
+var bounciness = 0.5;
 var sensitivity = 10;
 var min_acceleration_threshold = 10;
 
@@ -34,19 +34,32 @@ function setup() {
   initSound();
 }
 
-function update() {
-  sensitivity = document.getElementById("sensitivityRange").value;
-  bounciness = document.getElementById("bouncinessRange").value;
-  damping = document.getElementById("dampingRange").value;
-  stiffness = document.getElementById("sensitivityRange").value;
-}
-
-
 
 
 function draw() {
 
   background(50, 51);
+
+  // left line
+  stroke(233,246,121);
+  strokeWeight(15);
+  line(0,height,0,0);
+
+  // top line
+  stroke(237,34,93);
+  strokeWeight(15);
+  line(0,0,width,0);
+
+  // right line
+  stroke(37,165,95);
+  strokeWeight(15);
+  line(width,height,width,0);
+
+  // bottom line
+  stroke(52,100,115);
+  strokeWeight(15);
+  line(width,height,0,height);
+
 
   if(phoneShaked(min_acceleration_threshold)){
 
@@ -177,7 +190,7 @@ function drawCircles(){
           circleColor = 'rgba(233,246,121,' + opacity + ')';
           break;
         case 1:
-          circleColor = 'rgba(155,223,70,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
         case 2:
           circleColor = 'rgba(37,165,95,' + opacity + ')';
@@ -190,7 +203,7 @@ function drawCircles(){
       noFill();
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
       circles[i][3] += (windowWidth / (maxCircles/2));
-      ++circles[i][4];
+      ++circles[i][4]; //increment count of circles drawn
     }
     else
     {

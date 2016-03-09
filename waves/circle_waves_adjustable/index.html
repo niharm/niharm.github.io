@@ -17,19 +17,20 @@
   </head>
   <body>
 
+
 <h3>Bell Ball -- Adjustable</h3>
 
 <p>sensitivity: <span id="sensitivity"></span></p>
 <input type="range" id="sensitivityRange" value="10" min="0" max="30" onchange="updateValues();">
 
 <p>bounciness: <span id="bounciness"></span></p>
-<input type="range" id="bouncinessRange" value=".8" min="0" max="1" step=".1" onchange="updateValues();">
+<input type="range" id="bouncinessRange" value=".5" min="0" max="1" step=".1" onchange="updateValues();">
 
 <p>damping: <span id="damping"></span></p>
-<input type="range" id="dampingRange" value=".1" min="0" max="1" step=".1" onchange="updateValues();">
+<input type="range" id="dampingRange" value="0.05" min="0" max="0.3" step=".01" onchange="updateValues();">
 
 <p>stiffness: <span id="stiffness"></span></p>
-<input type="range" id="stiffnessRange" value="0.05" min="0" max="0.2" step="0.01" onchange="updateValues();">
+<input type="range" id="stiffnessRange" value="0.05" min="0" max="0.3" step="0.01" onchange="updateValues();">
 
 
 <script>
@@ -51,6 +52,8 @@
       stiffness = stiff;  
 
     }
+
+    updateValues();
 
 
 </script>
