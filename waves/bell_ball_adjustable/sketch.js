@@ -2,7 +2,7 @@
 
 var sensitivity = 9;
 var bounciness = 0;
-var damping = 0.30;
+var damping = 0.26;
 var stiffness = 0.1;
 var accelerationThreshold = 1;
 var accelerationDecayOnOff = 1;
