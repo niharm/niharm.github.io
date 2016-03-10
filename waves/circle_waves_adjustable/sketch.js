@@ -4,8 +4,8 @@ var stiffness = 0.05;
 var damping = 0.05;
 var bounciness = 0.5;
 var sensitivity = 10;
-var min_acceleration_threshold = 10;
-var input_ring_size = 40;
+var min_acceleration_threshold = 0;
+var input_ring_size = 60;
 
 var decay = 10;
 var bellPitches = [60.0, 63.0, 67.0, 72.0];
@@ -68,16 +68,16 @@ if (((p.position.x-p.target.x) * (p.position.x-p.target.x) +
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    // p.velocity.x += sensitivity*accelerationX;
-    // p.velocity.y += sensitivity*accelerationY;
+    p.velocity.x += sensitivity*accelerationX;
+    p.velocity.y += sensitivity*accelerationY;
 
     // position control
     // p.position.x += sensitivity*accelerationX;
     // p.position.y += sensitivity*accelerationY;
 
     // acceleration control
-     acceleration.x = sensitivity*accelerationX;
-     acceleration.y = sensitivity*accelerationY;
+    // acceleration.x = sensitivity*accelerationX;
+    // acceleration.y = sensitivity*accelerationY;
   }
 
   else{
