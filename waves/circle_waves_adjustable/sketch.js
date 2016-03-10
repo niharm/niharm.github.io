@@ -5,6 +5,7 @@ var damping = 0.05;
 var bounciness = 0.5;
 var sensitivity = 10;
 var min_acceleration_threshold = 10;
+var input_ring_size = 40;
 
 var decay = 10;
 var bellPitches = [60.0, 63.0, 67.0, 72.0];
@@ -60,8 +61,10 @@ function draw() {
   line(width,height,0,height);
 
 
-  if(phoneShaked(min_acceleration_threshold)){
-
+if (((p.position.x-p.target.x) * (p.position.x-p.target.x) + 
+     (p.position.y-p.target.y) * (p.position.y-p.target.y) < input_ring_size) &&
+    phoneShaked(min_acceleration_threshold))
+{
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
