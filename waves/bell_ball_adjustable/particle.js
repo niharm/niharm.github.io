@@ -25,7 +25,7 @@ function Particle(x,y) {
   this.display = function() {
     stroke(150);
     strokeWeight(4);
-    line(this.target.x,this.target.y,p.position.x,p.position.y);
+   // line(this.target.x,this.target.y,p.position.x,p.position.y);
     noStroke();
     fill(255);
     ellipse(this.position.x, this.position.y, this.r, this.r);
