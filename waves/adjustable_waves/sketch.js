@@ -3,8 +3,8 @@
 var stiffness = 0.05;
 var damping = 0.05;
 var bounciness = 0.5;
-var sensitivity = 10;
-var min_acceleration_threshold = 10;
+var sensitivity = 12;
+var min_acceleration_threshold = 0;
 
 var decay = 10;
 var bellPitches = [60.0, 63.0, 67.0, 72.0];
@@ -38,7 +38,7 @@ function draw() {
 
   background(51, 80);
 
- // if(phoneShaked(min_acceleration_threshold)){
+  if(phoneShaked(min_acceleration_threshold)){
 
     // you can chose whether to control the position, velocity, or acceleration
 
@@ -53,13 +53,13 @@ function draw() {
     // acceleration control
     // acceleration.x = sensitivity*accelerationX;
     // acceleration.y = sensitivity*accelerationY;
-//  }
+  }
 
-//  else{
+  else{
     // for acceleration control, reset acceleration to 0
-    // acceleration.x = 0;
-    // acceleration.y = 0;
-//  }
+    acceleration.x = 0;
+    acceleration.y = 0;
+  }
 
   p.steer(stiffness, damping);
   p.update(acceleration);
