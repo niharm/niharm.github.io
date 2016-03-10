@@ -4,7 +4,7 @@ var stiffness = 0.05;
 var damping = 0.05;
 var bounciness = 0.5;
 var sensitivity = 12;
-var accelerationThreshold = 0;
+var accelerationThreshold = 10;
 var accelerationDecayOnOff = 1;
 
 var decay = 10;
@@ -39,10 +39,10 @@ function draw() {
 
   background(51, 80);
 
-  console.log('X: ' + accelerationX);
-  console.log('Y: ' + accelerationY);
-
   if(phoneShaked(accelerationThreshold)){
+
+    console.log('X: ' + accelerationX);
+    console.log('Y: ' + accelerationY);
 
     // scale acceleration with distance from center
     adjustedAccelerationX = (1 - accelerationDecayOnOff*abs(p.position.x - width/2)/width/2) * accelerationX;
