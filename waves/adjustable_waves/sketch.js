@@ -4,7 +4,8 @@ var stiffness = 0.05;
 var damping = 0.05;
 var bounciness = 0.5;
 var sensitivity = 12;
-var min_acceleration_threshold = 0;
+var accelerationThreshold = 0;
+var accelerationDecayOnOff = 1;
 
 var decay = 10;
 var bellPitches = [60.0, 63.0, 67.0, 72.0];
@@ -38,21 +39,31 @@ function draw() {
 
   background(51, 80);
 
-  if(phoneShaked(min_acceleration_threshold)){
+  console.log('X: ' + accelerationX);
+  console.log('Y: ' + accelerationY);
+
+  if(phoneShaked(accelerationThreshold)){
+
+    // scale acceleration with distance from center
+    adjustedAccelerationX = (1 - accelerationDecayOnOff*abs(p.position.x - width/2)/width/2) * accelerationX;
+    adjustedAccelerationY = (1 - accelerationDecayOnOff*abs(p.position.y - height/2)/height/2) * accelerationY;
+
+    console.log('adjusted X: ' + accelerationX);
+    console.log('adjusted Y: ' + accelerationY);
 
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    p.velocity.x += sensitivity*accelerationX;
-    p.velocity.y += sensitivity*accelerationY;
+    p.velocity.x += sensitivity*adjustedAccelerationX;
+    p.velocity.y += sensitivity*adjustedAccelerationY;
 
     // position control
-    // p.position.x += sensitivity*accelerationX;
-    // p.position.y += sensitivity*accelerationY;
+    // p.position.x += sensitivity*adjustedAccelerationX;
+    // p.position.y += sensitivity*adjustedAccelerationY;
 
     // acceleration control
-    // acceleration.x = sensitivity*accelerationX;
-    // acceleration.y = sensitivity*accelerationY;
+    // acceleration.x = sensitivity*adjustedAccelerationX;
+    // acceleration.y = sensitivity*adjustedAccelerationY;
   }
 
   else{
@@ -177,7 +188,7 @@ function drawCircles(){
       stroke(circleColor);
       noFill();
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
-      circles[i][3] += (windowWidth / (maxCircles/2));
+      circles[i][3] += (width / (maxCircles/2));
       ++circles[i][4];
     }
     else

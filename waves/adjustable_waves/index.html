@@ -35,31 +35,37 @@
 <p>accelerationThreshold: <span id="accelerationThreshold"></span></p>
 <input type="range" id="accelerationThresholdRange" min="0" max="30" onchange="updateValues();">
 
+<p>accelerationDecayOnOff: <span id="accelerationDecayOnOff"></span></p>
+<input type="range" id="accelerationDecayOnOffRange" min="0" max="1" onchange="updateValues();">
+
 
 <script>
     function updateValues() {
-      var x;
+      var x1, x2, x3, x4, x5, x6;
 
-      x = document.getElementById("sensitivityRange").value;
-      document.getElementById("sensitivity").innerHTML = x;
-      sensitivity = x;
+      x1 = document.getElementById("sensitivityRange").value;
+      document.getElementById("sensitivity").innerHTML = x1;
+      sensitivity = x1;
 
-      x= document.getElementById("bouncinessRange").value;
-      document.getElementById("bounciness").innerHTML = x;
-      bounciness = x;       
+      x2 = document.getElementById("bouncinessRange").value;
+      document.getElementById("bounciness").innerHTML = x2;
+      bounciness = x2;       
 
-      x = document.getElementById("dampingRange").value;
-      document.getElementById("damping").innerHTML = x;
-      damping = x;       
+      x3 = document.getElementById("dampingRange").value;
+      document.getElementById("damping").innerHTML = x3;
+      damping = x3;       
 
-      x = document.getElementById("stiffnessRange").value;
-      document.getElementById("stiffness").innerHTML = x;
-      stiffness = x;  
+      x4 = document.getElementById("stiffnessRange").value;
+      document.getElementById("stiffness").innerHTML = x4;
+      stiffness = x4;  
 
-      x = document.getElementById("accelerationThresholdRange").value;
-      document.getElementById("accelerationThreshold").innerHTML = x;
-      min_acceleration_threshold = x;  
+      x5 = document.getElementById("accelerationThresholdRange").value;
+      document.getElementById("accelerationThreshold").innerHTML = x5;
+      accelerationThreshold = x5;  
 
+      x6 = document.getElementById("accelerationDecayOnOffRange").value;
+      document.getElementById("accelerationDecayOnOff").innerHTML = x6;
+      accelerationDecayOnOff = x6;        
     }
 
     // set initial values
@@ -67,7 +73,8 @@
     document.getElementById("bouncinessRange").value = bounciness;
     document.getElementById("dampingRange").value = damping;
     document.getElementById("stiffnessRange").value = stiffness;
-    document.getElementById("accelerationThresholdRange").value = min_acceleration_threshold;
+    document.getElementById("accelerationThresholdRange").value = accelerationThreshold;
+    document.getElementById("accelerationDecayOnOffRange").value = accelerationDecayOnOff;
 
     updateValues();
 
