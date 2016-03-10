@@ -23,7 +23,7 @@ function Particle(x,y) {
   }
 
   this.display = function() {
-    stroke(255);
+    stroke(150);
     strokeWeight(4);
     line(this.target.x,this.target.y,p.position.x,p.position.y);
     noStroke();
