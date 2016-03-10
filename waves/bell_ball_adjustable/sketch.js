@@ -37,7 +37,7 @@ function setup() {
 
 function draw() {
 
-  background(50);
+  background(50, 85);
 
   // left line
   stroke(233,246,121);
