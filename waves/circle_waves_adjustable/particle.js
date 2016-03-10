@@ -6,17 +6,13 @@ function Particle(x,y) {
   //this.maxForce = Infinity;
   this.target = createVector(width/2,height/2);
   this.r = 25;
-  acceleration_ring_size = 40;
 
   // Integrate acceleration
   this.update = function(additional_acceleration) {
     this.velocity.add(this.acceleration);
 
-if ((this.position.x-this.target.x) * (this.position.x-this.target.x) + 
-    (this.position.y-this.target.y) * (this.position.y-this.target.y) < acceleration_ring_size) {
-      this.velocity.add(additional_acceleration);
-      //this.velocity.limit(this.maxspeed); // Limit speed
-    };
+    this.velocity.add(additional_acceleration);
+    //this.velocity.limit(this.maxspeed); // Limit speed
 
     this.position.add(this.velocity);
     this.acceleration.mult(0);  // Reset acceleration to 0 each cycle
