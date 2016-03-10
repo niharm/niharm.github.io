@@ -1,10 +1,10 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
-var stiffness = 0.05;
-var damping = 0.05;
-var bounciness = 0.5;
-var sensitivity = 12;
-var accelerationThreshold = 10;
+var sensitivity = 9;
+var bounciness = 0;
+var damping = 0.30;
+var stiffness = 0.1;
+var accelerationThreshold = 1;
 var accelerationDecayOnOff = 1;
 
 var decay = 10;
@@ -37,7 +37,27 @@ function setup() {
 
 function draw() {
 
-  background(51, 80);
+  background(50, 80);
+
+  // left line
+  stroke(233,246,121);
+  strokeWeight(40);
+  line(0,height,0,0);
+
+  // top line
+  stroke(237,34,93);
+  strokeWeight(40);
+  line(0,0,width,0);
+
+  // right line
+  stroke(37,165,95);
+  strokeWeight(40);
+  line(width,height,width,0);
+
+  // bottom line
+  stroke(52,100,115);
+  strokeWeight(40);
+  line(width,height,0,height);
 
   if(phoneShaked(accelerationThreshold)){
 
@@ -176,7 +196,7 @@ function drawCircles(){
           circleColor = 'rgba(233,246,121,' + opacity + ')';
           break;
         case 1:
-          circleColor = 'rgba(155,223,70,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
         case 2:
           circleColor = 'rgba(37,165,95,' + opacity + ')';
