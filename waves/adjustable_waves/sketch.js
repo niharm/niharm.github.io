@@ -54,16 +54,16 @@ function draw() {
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    //p.velocity.x += sensitivity*adjustedAccelerationX;
-    //p.velocity.y += sensitivity*adjustedAccelerationY;
+    p.velocity.x += sensitivity*adjustedAccelerationX;
+    p.velocity.y += sensitivity*adjustedAccelerationY;
 
     // position control
     // p.position.x += sensitivity*adjustedAccelerationX;
     // p.position.y += sensitivity*adjustedAccelerationY;
 
     // acceleration control
-    acceleration.x = sensitivity*adjustedAccelerationX;
-    acceleration.y = sensitivity*adjustedAccelerationY;
+    // acceleration.x = sensitivity*adjustedAccelerationX;
+    // acceleration.y = sensitivity*adjustedAccelerationY;
   }
 
   else{
