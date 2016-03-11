@@ -8,8 +8,8 @@ function Particle(position) {
 
   // Override the display method
   this.display = function(){
-    fill(255, 204, 0);
-    stroke(255, 204, 0);
+    fill(255, 242, 8);
+    stroke(255, 242, 8);
     ellipse(this.x,this.y,100,100);
   }
 }

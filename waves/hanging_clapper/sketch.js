@@ -52,7 +52,7 @@ function setup() {
 
   // Initialize the physics
   physics = new VerletPhysics2D();
-  physics.addBehavior(new GravityBehavior(new Vec2D(0,0.5)));
+  physics.addBehavior(new GravityBehavior(new Vec2D(0,10)));
 
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0,0,width,height));
@@ -120,19 +120,19 @@ function draw() {
       strokeWeight(5 );
       if (circleWall == 0)
       {
-        stroke('#9bdf46');
+        stroke('#5F08FF');
       }
       else if (circleWall == 1)
       {
-        stroke('#9bdf46');
+        stroke('#5F08FF');
       }
       else if (circleWall == 2)
       {
-        stroke('#9bdf46');
+        stroke('#5F08FF');
       }
       else if (circleWall == 3)
       {
-        stroke('#9bdf46');
+        stroke('#5F08FF');
       }
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
       circles[i][5] += (windowWidth / 10);
@@ -144,8 +144,7 @@ function draw() {
   }
   
   
-  
-  stroke(255, 204, 0);
+  stroke(255, 242, 8);
   strokeWeight(100);
   line(p[0].x,p[0].y,ball.x,ball.y);
   
