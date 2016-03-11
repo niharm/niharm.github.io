@@ -171,7 +171,7 @@ function draw() {
  //     ball.x += accelerationX*10;
  //   else {
  //     ball.x -= accelerationX*10;
-    }
+ //   }
   }
   /*
   fill(255);
