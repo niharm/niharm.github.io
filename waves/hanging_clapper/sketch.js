@@ -164,10 +164,8 @@ function draw() {
     ball.y = mouseY;
   }
   
-
-  if (abs(accelerationX - pAccelerationX) > 1) {
-    ball.velocity.x += accelerationX*10;
-  }
+  // accelerate x
+  ball.addVelocity(accelerationX*10);
   /*
   fill(255);
   noStroke();
