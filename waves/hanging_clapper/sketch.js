@@ -43,6 +43,8 @@ function setup() {
       e[j][i].setADSR(.01,2,0,0.1);
       e[j][i].setExp(true);
       s[j][i].freq(midiToFreq((bellPitches[j] + (random((detune*-1.0), detune)))) * bellOvertones[i]);
+      // TEMP: make them all the same pitch
+      s[j][i].freq(midiToFreq(bellPitches[0] * bellOvertones[i]));
     }
   }
   textSize(windowHeight/10);
@@ -70,7 +72,7 @@ function setup() {
   p[0].lock();
 
   // Make a spring connecting both Particles
-  spring[0] = new VerletSpring2D(p[0],ball,height*(2/3),0.01);
+  spring[0] = new VerletSpring2D(p[0],ball,height*(2/3),1);
 
   // Anything we make, we have to add into the physics world
   physics.addParticle(p[0]);
@@ -80,7 +82,7 @@ function setup() {
 
 function draw() {
 
-  background(50,100);
+  background(50);
 
   // Update the physics world
   physics.update();
@@ -118,7 +120,7 @@ function draw() {
       strokeWeight(5 );
       if (circleWall == 0)
       {
-        stroke('#e9f679');
+        stroke('#9bdf46');
       }
       else if (circleWall == 1)
       {
@@ -126,11 +128,11 @@ function draw() {
       }
       else if (circleWall == 2)
       {
-        stroke('#25a55f');
+        stroke('#9bdf46');
       }
       else if (circleWall == 3)
       {
-        stroke('#346473');
+        stroke('#9bdf46');
       }
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
       circles[i][5] += (windowWidth / 10);
@@ -143,8 +145,8 @@ function draw() {
   
   
   
-  stroke(255);
-  strokeWeight(4);
+  stroke(255, 204, 0);
+  strokeWeight(100);
   line(p[0].x,p[0].y,ball.x,ball.y);
   
   /*
@@ -152,7 +154,7 @@ function draw() {
   line(p[2].x,p[2].y,ball.x,ball.y);
   line(p[3].x,p[3].y,ball.x,ball.y);
   */
-  
+
   // Display the ball
   ball.display();
   
