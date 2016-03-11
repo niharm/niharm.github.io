@@ -15,7 +15,7 @@ function setup(){
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("Y acceleration", windowWidth/2, 3*windowHeight/6);
-    text("X rotation", windowWidth/2, 5*windowHeight/6);
+    text("Z rotation", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 }
 
@@ -26,10 +26,10 @@ function draw(){
 
   stroke(255,0,0);
   line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
-  stroke(0,255,0);
-  line(xPos - 3, 5*windowHeight/6-map(pRotationX,-180,180,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(rotationX,-180,180,-windowHeight/6,windowHeight/6))
   stroke(0,0,255);
   line(xPos - 3, 3*windowHeight/6-map(pAccelerationY,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationY,-40,40,-windowHeight/6,windowHeight/6))
+  stroke(0,255,0);
+  line(xPos - 3, 5*windowHeight/6-map(pRotationZ,-180,180,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(rotationZ,-180,180,-windowHeight/6,windowHeight/6))
 
 
   // point(xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6));
