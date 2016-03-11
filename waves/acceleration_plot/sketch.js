@@ -38,7 +38,7 @@ function draw(){
     stroke(0,0,255);
     line(xPos - 3, 3*windowHeight/6-map(pAccelerationX - ppAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationX - pAccelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    line(xPos - 3, 5*windowHeight/6-map(pVelocity),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 5*windowHeight/6-map(pVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
 
     pVelocity = Velocity;
     ppVelocity = pVelocity;
