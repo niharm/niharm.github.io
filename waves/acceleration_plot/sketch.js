@@ -1,6 +1,6 @@
 var xPos = 0;
 var pXIntegral, xIntegral = 0;
-var ppAccelerationX;
+var ppAccelerationX, ppXIntegral;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -22,6 +22,11 @@ function setup(){
 
 }
 
+function highpassfilter(x, prev_x) {
+  var average = (x + prev_x)/2;
+  return x - average;
+}
+
 function draw(){
 
   if(xPos<windowWidth){
@@ -33,9 +38,11 @@ function draw(){
     stroke(0,0,255);
     line(xPos - 3, 3*windowHeight/6-map(pAccelerationX - ppAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationX - pAccelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    line(xPos - 3, 5*windowHeight/6-map(pXIntegral,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(xIntegral,-100,100,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 5*windowHeight/6-map(highpassfilter(pXIntegral,ppXIntegral),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(highpassfilter(XIntegral,pXIntegral),-100,100,-windowHeight/6,windowHeight/6))
 
     pXIntegral = xIntegral;
+    ppXIntegral = pXIntegral;
+
     ppAccelerationX = pAccelerationX;
 
   // point(xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6));
