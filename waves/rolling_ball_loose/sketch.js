@@ -1,9 +1,9 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
-var sensitivity = 9;
+var sensitivity = 7;
 var bounciness = 0.2;
-var damping = .06;
-var stiffness = 0;
+var damping = .04;
+var stiffness = 0.01;
 var accelerationThreshold = 1;
 var accelerationDecayOnOff = 1;
 
@@ -150,7 +150,7 @@ function initSound(){
       s[j][i].start();
       e[j][i] = new p5.Env(0.01, 0.5, 1, 0.5);
       e[j][i].setADSR(.01,2,0,0.1);
-      e[j][i].setExp(false);
+      e[j][i].setExp(true);
       s[j][i].freq(midiToFreq((bellPitches[j] + (random((detune*-1.0), detune)))) * bellOvertones[i]);
     }
   }
