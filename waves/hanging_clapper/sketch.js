@@ -166,12 +166,7 @@ function draw() {
   
 
   if (abs(accelerationX - pAccelerationX) > 1) {
-    ball.x += accelerationX*10;
- //   if (ball.x > width/2)
- //     ball.x += accelerationX*10;
- //   else {
- //     ball.x -= accelerationX*10;
- //   }
+    ball.velocity.x += accelerationX*10;
   }
   /*
   fill(255);
