@@ -1,6 +1,6 @@
 var xPos = 0;
-var pXIntegral, xIntegral = 0;
-var ppAccelerationX, ppXIntegral;
+var pppVelocity, ppVelocity, pVelocity, Velocity = 0;
+var ppAccelerationX = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -17,13 +17,13 @@ function setup(){
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("X jerk", windowWidth/2, 3*windowHeight/6);
-    text("X velocity", windowWidth/2, 5*windowHeight/6);
+    text("X Velocity", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
 
-function highpassfilter(x, prev_x) {
-  var average = (x + prev_x)/2;
+function highpassfilter(x, prev_x, prev_prev_x) {
+  var average = (x + prev_x + prev_prev_x)/3;
   return x - average;
 }
 
@@ -31,17 +31,17 @@ function draw(){
 
   if(xPos<windowWidth){
 
-    xIntegral += accelerationX;
+    Velocity += accelerationX;
 
     stroke(255,0,0);
     line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,0,255);
     line(xPos - 3, 3*windowHeight/6-map(pAccelerationX - ppAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationX - pAccelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    line(xPos - 3, 5*windowHeight/6-map(highpassfilter(pXIntegral,ppXIntegral),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(highpassfilter(xIntegral,pXIntegral),-100,100,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 5*windowHeight/6-map(highpassfilter(pVelocity,ppVelocity, pppVelocity),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(highpassfilter(Velocity,pVelocity, ppVelocity),-100,100,-windowHeight/6,windowHeight/6))
 
-    pXIntegral = xIntegral;
-    ppXIntegral = pXIntegral;
+    pVelocity = Velocity;
+    ppVelocity = pVelocity;
 
     ppAccelerationX = pAccelerationX;
 
