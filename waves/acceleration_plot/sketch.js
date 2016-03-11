@@ -2,7 +2,7 @@ var xPos = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
-  xPos = windowWidth+1;
+  xPos = 0;
   stroke(255);
   strokeWeight(6);
   fill(70);
@@ -10,21 +10,19 @@ function setup(){
   size = windowHeight/10;
   textSize(size);
   textAlign(CENTER,CENTER);
+
+      background(0);
+    noStroke();
+    text("X acceleration", windowWidth/2, windowHeight/6);
+    text("X rotation", windowWidth/2, 5*windowHeight/6);
+    text("Y acceleration", windowWidth/2, 3*windowHeight/6);
+    stroke(255);
 }
 
 function draw(){
 
-  if(xPos>windowWidth){
-    // background(0);
-    // xPos = 0;
-    // noStroke();
-    // text("X acceleration", windowWidth/2, windowHeight/6);
-    // text("X rotation", windowWidth/2, 5*windowHeight/6);
-    // text("Y acceleration", windowWidth/2, 3*windowHeight/6);
-    // stroke(255);
-  }
+  if(xPos<windowWidth){
 
-  else {
 
   stroke(255,0,0);
   line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
