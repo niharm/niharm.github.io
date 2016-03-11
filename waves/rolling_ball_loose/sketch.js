@@ -1,11 +1,10 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
-var sensitivity = 7;
+var sensitivity = 5;
 var bounciness = 0.2;
 var damping = .04;
 var stiffness = 0;
 var accelerationThreshold = 1;
-var accelerationDecayOnOff = 1;
 
 var decay = 10;
 var bellPitches = [60.0, 63.0, 67.0, 72.0];
@@ -64,26 +63,19 @@ function draw() {
     console.log('X: ' + accelerationX);
     console.log('Y: ' + accelerationY);
 
-    // scale acceleration with distance from center
-    adjustedAccelerationX = (1 - accelerationDecayOnOff*abs(p.position.x - width/2)/width/2) * accelerationX;
-    adjustedAccelerationY = (1 - accelerationDecayOnOff*abs(p.position.y - height/2)/height/2) * accelerationY;
-
-    console.log('adjusted X: ' + adjustedAccelerationX);
-    console.log('adjusted Y: ' + adjustedAccelerationY);
-
     // you can chose whether to control the position, velocity, or acceleration
 
     // velocity control
-    p.velocity.x += sensitivity*adjustedAccelerationX;
-    p.velocity.y += sensitivity*adjustedAccelerationY;
+    p.velocity.x += sensitivity*accelerationX;
+    p.velocity.y += sensitivity*accelerationY;
 
     // position control
-    // p.position.x += sensitivity*adjustedAccelerationX;
-    // p.position.y += sensitivity*adjustedAccelerationY;
+    // p.position.x += sensitivity*accelerationX;
+    // p.position.y += sensitivity*accelerationY;
 
     // acceleration control
-    // acceleration.x = sensitivity*adjustedAccelerationX;
-    // acceleration.y = sensitivity*adjustedAccelerationY;
+    // acceleration.x = sensitivity*accelerationX;
+    // acceleration.y = sensitivity*accelerationY;
   }
 
   else{

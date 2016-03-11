@@ -165,7 +165,11 @@ function draw() {
   }
   
   // accelerate x
-  if (abs(ball.x - width/2) < width/4) {
+ // if (abs(ball.x - width/2) < width/4) {
+ 
+  if (ball.x < width/2) {
+    ball.addVelocity(accelerationX*-10); }
+  else  {
     ball.addVelocity(accelerationX*10); }
   /*
   fill(255);
