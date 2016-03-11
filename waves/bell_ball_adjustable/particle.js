@@ -5,7 +5,7 @@ function Particle(x,y) {
   //this.maxspeed = Infinity;
   //this.maxForce = Infinity;
   this.target = createVector(width/2,height/2);
-  this.r = 25;
+  this.r = 50;
 
   // Integrate acceleration
   this.update = function(additional_acceleration) {
