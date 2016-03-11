@@ -16,8 +16,8 @@ function setup(){
       background(0);
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
-    text("Y acceleration", windowWidth/2, 3*windowHeight/6);
-    text("X integral", windowWidth/2, 5*windowHeight/6);
+    text("X jerk", windowWidth/2, 3*windowHeight/6);
+    text("X velocity", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
