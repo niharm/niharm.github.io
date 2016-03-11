@@ -29,7 +29,8 @@ function draw(){
   stroke(0,0,255);
   line(xPos - 3, 3*windowHeight/6-map(pAccelerationY,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationY,-40,40,-windowHeight/6,windowHeight/6))
   stroke(0,255,0);
-  line(xPos - 3, 5*windowHeight/6-map(pRotationZ,0,360,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(rotationZ,0,360,-windowHeight/6,windowHeight/6))
+  var adjustedRotationZ = pRotationZ - 180;
+  line(xPos - 3, 5*windowHeight/6-map(pRotationZ,180,180,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(rotationZ,-180,180,-windowHeight/6,windowHeight/6))
 
 
   // point(xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6));
