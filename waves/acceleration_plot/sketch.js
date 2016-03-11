@@ -18,9 +18,9 @@ function draw(){
     background(0);
     xPos = 0;
     noStroke();
-    text("x acceleration", windowWidth/2, windowHeight/6);
-    text("y acceleration", windowWidth/2, 3*windowHeight/6);
-    text("x rotation", windowWidth/2, 5*windowHeight/6);
+    text("X acceleration", windowWidth/2, windowHeight/6);
+    text("X rotation", windowWidth/2, 5*windowHeight/6);
+    text("Y acceleration", windowWidth/2, 3*windowHeight/6);
     stroke(255);
   }
 
