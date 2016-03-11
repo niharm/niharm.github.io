@@ -3,7 +3,7 @@
 var sensitivity = 9;
 var bounciness = .5;
 var damping = .02;
-var stiffness = 0.02;
+var stiffness = 0;
 var accelerationThreshold = 1;
 var accelerationDecayOnOff = 1;
 
@@ -37,7 +37,7 @@ function setup() {
 
 function draw() {
 
-  background(50, 85);
+  background(50, 92);
 
   // left line
   stroke(233,246,121);
