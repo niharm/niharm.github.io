@@ -18,18 +18,18 @@ function draw(){
     background(0);
     xPos = 0;
     noStroke();
-    text("X rotation", windowWidth/2, windowHeight/6);
-    text("Y rotation", windowWidth/2, 3*windowHeight/6);
-    text("Z rotation", windowWidth/2, 5*windowHeight/6);
+    text("X acceleration", windowWidth/2, windowHeight/6);
+    text("Y acceleration", windowWidth/2, 3*windowHeight/6);
+    text("Z acceleration", windowWidth/2, 5*windowHeight/6);
     stroke(255);
   }
 
   stroke(255,0,0);
-  point(xPos,windowHeight/6-map(rotationX,-180,180,-windowHeight/6,windowHeight/6));
+  point(xPos,windowHeight/6-map(accelerationX,-40,30,-windowHeight/6,windowHeight/6));
   stroke(0,255,0);
-  point(xPos,3*windowHeight/6-map(rotationY,-180,180,-windowHeight/6,windowHeight/6));
+  point(xPos,3*windowHeight/6-map(accelerationY,-40,40,-windowHeight/6,windowHeight/6));
   stroke(0,0,255);
-  point(xPos,5*windowHeight/6-map(rotationZ,0,360,-windowHeight/6,windowHeight/6));
+  point(xPos,5*windowHeight/6-map(accelerationZ,-40,40,-windowHeight/6,windowHeight/6));
 
   xPos++;
 
