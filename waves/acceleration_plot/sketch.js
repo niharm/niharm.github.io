@@ -16,7 +16,7 @@ function setup(){
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("Y acceleration", windowWidth/2, 3*windowHeight/6);
-    text("Z rotation", windowWidth/2, 5*windowHeight/6);
+    text("X integral", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
