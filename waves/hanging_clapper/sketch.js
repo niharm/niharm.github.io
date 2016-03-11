@@ -166,9 +166,10 @@ function draw() {
   }
   
 
-  
-  ball.x += accelerationX*10;
-  ball.y += accelerationY*10;
+  if (abs(accelerationX - pAccelerationX) + abs(accelerationY - pAccelerationY) > 30) {
+    ball.x += accelerationX*10;
+    ball.y += accelerationY*10;
+  }
   /*
   fill(255);
   noStroke();
