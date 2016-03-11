@@ -42,6 +42,7 @@ function draw(){
 
     pVelocity = Velocity;
     ppVelocity = pVelocity;
+    pppVelocity = ppVelocity;
 
     ppAccelerationX = pAccelerationX;
 
