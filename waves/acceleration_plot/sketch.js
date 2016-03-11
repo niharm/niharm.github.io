@@ -38,7 +38,7 @@ function draw(){
     stroke(0,0,255);
     line(xPos - 3, 3*windowHeight/6-map(pAccelerationX - ppAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationX - pAccelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    line(xPos - 3, 5*windowHeight/6-map(highpassfilter(pXIntegral,ppXIntegral),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(highpassfilter(XIntegral,pXIntegral),-100,100,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 5*windowHeight/6-map(highpassfilter(pXIntegral,ppXIntegral),-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(highpassfilter(xIntegral,pXIntegral),-100,100,-windowHeight/6,windowHeight/6))
 
     pXIntegral = xIntegral;
     ppXIntegral = pXIntegral;
