@@ -15,14 +15,16 @@ function setup(){
 function draw(){
 
   if(xPos>windowWidth){
-    background(0);
-    xPos = 0;
-    noStroke();
-    text("X acceleration", windowWidth/2, windowHeight/6);
-    text("X rotation", windowWidth/2, 5*windowHeight/6);
-    text("Y acceleration", windowWidth/2, 3*windowHeight/6);
-    stroke(255);
+    // background(0);
+    // xPos = 0;
+    // noStroke();
+    // text("X acceleration", windowWidth/2, windowHeight/6);
+    // text("X rotation", windowWidth/2, 5*windowHeight/6);
+    // text("Y acceleration", windowWidth/2, 3*windowHeight/6);
+    // stroke(255);
   }
+
+  else {
 
   stroke(255,0,0);
   line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
@@ -38,6 +40,7 @@ function draw(){
 
   xPos = xPos + 3;
 
+}
 
 }
 
