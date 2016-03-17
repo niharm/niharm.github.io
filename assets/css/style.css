@@ -184,7 +184,12 @@ h1, h2, h3, h4, h5, h6 {
 	opacity: 0.4;
 }
 
-/*
+/* Project */
+.project {
+	font-size: 3vmin;
+	margin-bottom: 2vmin;
+}
+
 
 COLORS
 
