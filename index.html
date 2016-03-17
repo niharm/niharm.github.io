@@ -91,14 +91,14 @@
 			  <button id="all-filter" type="button" class="btn btn-default" autofocus="true">All</button>
 			  <button id="art-filter" type="button" class="btn btn-default">Art</button>
 			  <button id="writing-filter" type="button" class="btn btn-default">Writing</button>
-			  <button id="coding-filter" type="button" class="btn btn-default">Coding</button>
+			  <button id="code-filter" type="button" class="btn btn-default">Code</button>
 			  <button id="data-filter" type="button" class="btn btn-default">Data</button>
 			  <button id="travel-filter" type="button" class="btn btn-default">Travel</button>
 			</div>
 		</div> <!-- row -->
 
 		<div class="row centered">
-			<div class="col-sm-4 gallery art coding">
+			<div class="col-sm-4 gallery art code">
 				<a href="audience"><img src="assets/img/portfolio/plork_img.png" class="img-responsive"></a>
 				Performer + Audience Interaction
 			</div>
@@ -110,11 +110,11 @@
 				<a href="geography"><img src="assets/img/portfolio/geography_img.png" class="img-responsive"></a>
 				Geography of Princeton
 			</div>
-			<div class="col-sm-4 gallery writing coding">
+			<div class="col-sm-4 gallery writing code">
 				<a href="make-website"><img src="assets/img/portfolio/website_img.png" class="img-responsive"></a>
 				Creating a 'princeton.edu' Webpage
 			</div>
-			<div class="col-sm-4 gallery writing">
+			<div class="col-sm-4 gallery writing data">
 				<a href="listserv"><img src="assets/img/portfolio/listserv_img.png" class="img-responsive"></a>
 				Princeton Emails
 			</div>
@@ -122,7 +122,7 @@
 				<a href="admirers"><img src="assets/img/portfolio/admirers_img.png" class="img-responsive"></a>
 				Love at Princeton
 			</div>
-			<div class="col-sm-4 gallery coding">
+			<div class="col-sm-4 gallery code">
 				<a href="tigermunch"><img src="assets/img/portfolio/tigermunch_img.png" class="img-responsive"></a>
 				Dining Menus by Text
 			</div>
@@ -135,7 +135,6 @@
 
 	<div id="footerwrap">
 		<div class="container">
-
 			<div class="row centered">
 				<p>By <a href="index.html">Nihar Madhavan</a></p>
 				<p>-</p>
@@ -169,9 +168,9 @@
 	    $(".art").show() 
 	});
 
-    $("#coding-filter").click(function(){	
+    $("#code-filter").click(function(){	
 	    $(".gallery").hide()
-	    $(".coding").show() 
+	    $(".code").show() 
 	});
 
 	$("#writing-filter").click(function(){	
