@@ -33,7 +33,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
+	<script>
 	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -82,89 +82,113 @@
 	    </div> <!-- /container -->
 	</div><! --/photowrap -->
 	
+
 	<section id="projects"></section>
-	<div class="container">
-		<div class="row centered mt mb">
+	<div class="container mt mb">
+		<div class="row">
 			<h1>Projects</h1>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="audience"><img src="assets/img/portfolio/plork_img.png" class="img-responsive"></a>
-					Performer + Audience Interaction
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="presidents"><img src="assets/img/portfolio/presidents_img.png" class="img-responsive"></a>
-					Eating Club Presidents
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="geography"><img src="assets/img/portfolio/geography_img.png" class="img-responsive"></a>
-					Geography of Princeton
-				</div>
+			<div class="btn-group">
+			  <button id="all-filter" type="button" class="btn btn-default" autofocus="true">All</button>
+			  <button id="art-filter" type="button" class="btn btn-default">Art</button>
+			  <button id="writing-filter" type="button" class="btn btn-default">Writing</button>
+			  <button id="coding-filter" type="button" class="btn btn-default">Coding</button>
+			  <button id="data-filter" type="button" class="btn btn-default">Data</button>
+			  <button id="travel-filter" type="button" class="btn btn-default">Travel</button>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="make-website"><img src="assets/img/portfolio/website_img.png" class="img-responsive"></a>
-					Creating a 'princeton.edu' Webpage
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="listserv"><img src="assets/img/portfolio/listserv_img.png" class="img-responsive"></a>
-					Princeton Emails
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="admirers"><img src="assets/img/portfolio/admirers_img.png" class="img-responsive"></a>
-					Love at Princeton
-				</div>
+		</div> <!-- row -->
+
+		<div class="row centered">
+			<div class="col-sm-4 gallery art coding">
+				<a href="audience"><img src="assets/img/portfolio/plork_img.png" class="img-responsive"></a>
+				Performer + Audience Interaction
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="https://github.com/niharm/stamp"><img src="assets/img/portfolio/stamp_img.png" class="img-responsive"></a>
-					Send Emails from Terminal
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="tigermunch"><img src="assets/img/portfolio/tigermunch_img.png" class="img-responsive"></a>
-					Dining Menus by Text
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-					<a href="ewb-peru"><img src="assets/img/portfolio/peru_img.png" class="img-responsive"></a>
-					Engineers Without Borders | Peru
-				</div>
+			<div class="col-sm-4 gallery writing data">
+				<a href="presidents"><img src="assets/img/portfolio/presidents_img.png" class="img-responsive"></a>
+				Eating Club Presidents
+			</div>
+			<div class="col-sm-4 gallery writing data">
+				<a href="geography"><img src="assets/img/portfolio/geography_img.png" class="img-responsive"></a>
+				Geography of Princeton
+			</div>
+			<div class="col-sm-4 gallery writing coding">
+				<a href="make-website"><img src="assets/img/portfolio/website_img.png" class="img-responsive"></a>
+				Creating a 'princeton.edu' Webpage
+			</div>
+			<div class="col-sm-4 gallery writing">
+				<a href="listserv"><img src="assets/img/portfolio/listserv_img.png" class="img-responsive"></a>
+				Princeton Emails
+			</div>
+			<div class="col-sm-4 gallery data writing">
+				<a href="admirers"><img src="assets/img/portfolio/admirers_img.png" class="img-responsive"></a>
+				Love at Princeton
+			</div>
+			<div class="col-sm-4 gallery coding">
+				<a href="tigermunch"><img src="assets/img/portfolio/tigermunch_img.png" class="img-responsive"></a>
+				Dining Menus by Text
+			</div>
+			<div class="col-sm-4 gallery travel">
+				<a href="ewb-peru"><img src="assets/img/portfolio/peru_img.png" class="img-responsive"></a>
+				Engineers Without Borders | Peru
 			</div>
 		</div><! --/row -->
 	</div><! --/container -->
-	
-	<div id="social">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-4 col-md-4 col-sm-4">
-					<a href="https://facebook.com/niharm"><i class="fa fa-facebook"></i></a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4">
-					<a href="https://twitter.com/niharmadhavan"><i class="fa fa-twitter"></i></a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4">
-					<a href="https://github.com/niharm"><i class="fa fa-github"></i></a>
-				</div>
-			
-			</div><! --/row -->
-		</div><! --/container -->
-	</div><! --/social -->
 
 	<div id="footerwrap">
 		<div class="container">
+
 			<div class="row centered">
 				<p>By <a href="index.html">Nihar Madhavan</a></p>
 				<p>-</p>
 				<p>Currently on the move.</p>
 				<p>niharmadhavan@gmail.com</p>
+				<a href="https://facebook.com/niharm"><i class="fa fa-facebook"></i></a>
+				<a href="https://twitter.com/niharmadhavan"><i class="fa fa-twitter"></i></a>
+				<a href="https://github.com/niharm"><i class="fa fa-github"></i></a>
 			</div>
-		</div>
+		</div> <!-- container -->
 	</div><! --/footerwrap -->
 	
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Filtering -->
+    <script>
+
+    console.log('yo');
+
+    $("#all-filter").click(function(){	
+	    $(".gallery").show() 
+	});
+
+    $("#art-filter").click(function(){	
+	    $(".gallery").hide()
+	    $(".art").show() 
+	});
+
+    $("#coding-filter").click(function(){	
+	    $(".gallery").hide()
+	    $(".coding").show() 
+	});
+
+	$("#writing-filter").click(function(){	
+	    $(".gallery").hide()
+	    $(".writing").show() 
+	});
+
+	$("#data-filter").click(function(){	
+	    $(".gallery").hide()
+	    $(".data").show() 
+	});
+
+	$("#travel-filter").click(function(){	
+	    $(".gallery").hide()
+	    $(".travel").show() 
+	});
+
+    </script>
   </body>
 </html>
