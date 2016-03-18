@@ -26,13 +26,14 @@ function setup(){
 
 }
 
-function adjustVelocityStdDev([pastAccelerations], Velocity, pVelocity) {
+function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
+
+  console.log(pastAccelerations);
 
   // calculate StdDev
   var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
   var stdDev = 0;
 
-  console.log('start');
   console.log(avgAccel);
 
   for (var i = 0; i < 3; i++) {
@@ -58,7 +59,7 @@ function adjustVelocityStdDev([pastAccelerations], Velocity, pVelocity) {
 
 function draw(){
   // add new velocity (maintain length of array)
-  pastAccelerations.splice(0, 0);
+  pastAccelerations.splice(0, 1);
   pastAccelerations.push(accelerationX);
 
   Velocity = adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity);
