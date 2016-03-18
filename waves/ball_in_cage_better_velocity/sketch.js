@@ -80,8 +80,8 @@ function draw() {
     pVelocityX = velocityX;
     pVelocityY = velocityY;
 
-    text(velocityX, windowWidth/2, 2*windowHeight/6);
-    text(velocityY, windowWidth/2, 4*windowHeight/6);
+    text(Math.floor(velocityX), windowWidth/2, 2*windowHeight/6);
+    text(Math.floor(velocityY), windowWidth/2, 4*windowHeight/6);
 
 
     // velocity control
