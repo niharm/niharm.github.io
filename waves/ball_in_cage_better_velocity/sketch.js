@@ -91,8 +91,10 @@ function draw() {
     // velocity control
     if (abs(velocityX) > 20) {
       p.velocity.x += -1*sensitivity*velocityX; 
+    }
     if (abs(velocityY) > 20) {
       p.velocity.y += sensitivity*velocityY; 
+    }
   }
 
   p.steer(stiffness, damping);
