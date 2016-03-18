@@ -85,7 +85,7 @@ function draw() {
     }
 
     if (velocityY > 0) {
-        console.log('X' + velocityY);
+        console.log('Y' + velocityY);
     }
 
     // velocity control
