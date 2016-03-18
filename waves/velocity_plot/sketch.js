@@ -21,24 +21,33 @@ function setup(){
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("X Velocity", windowWidth/2, 3*windowHeight/6);
+    text("Adjusted V", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
 
-function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
+function adjustVelocityStdDev([pastAccelerations], Velocity, pVelocity) {
 
   // calculate StdDev
+
+  pastAccelerations = [1, 2, 3];
 
   var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
   var stdDev = 0;
 
+  console.log('start');
+  console.log(avgAccel);
+
   for (var i = 0; i < 3; i++) {
-    stdDev += (pastAccelerations[i] - stdDev) * (pastAccelerations[i] - stdDev);
+    stdDev += (pastAccelerations[i] - avgAccel) * (pastAccelerations[i] - avgAccel);
+    console.log(stdDev);
   }
+
+  console.log(stdDev);
 
   stdDev = stdDev/3;
 
-  text(stdDev, windowWidth/2, 5*windowHeight/6);
+  console.log(stdDev);
 
 
   if (stdDev < 0) {
