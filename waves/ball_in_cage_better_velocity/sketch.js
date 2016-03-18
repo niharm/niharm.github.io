@@ -80,15 +80,16 @@ function draw() {
     pVelocityX = velocityX;
     pVelocityY = velocityY;
 
-    text(Math.floor(velocityX), windowWidth/2, 2*windowHeight/6);
-    text(Math.floor(velocityY), windowWidth/2, 4*windowHeight/6);
-
+    console.log(velocityX);
+    console.log(velocityY);
 
     // velocity control
     if (abs(velocityX) > 20) {
-      p.velocity.x += sensitivity*velocityX; }
+      p.velocity.x += sensitivity*velocityX; 
+      console.log('bing');}
     if (abs(velocityY) > 20) {
-      p.velocity.y += sensitivity*velocityY; }
+      p.velocity.y += sensitivity*velocityY; 
+      console.log('bing');}
   }
 
   p.steer(stiffness, damping);
