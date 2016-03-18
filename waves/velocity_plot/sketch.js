@@ -26,25 +26,21 @@ function setup(){
 
 }
 
-function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
+function adjustVelocityStdDev(pastAccelerations, pVelocity) {
 
-  // calculate StdDev
+  // calculate variance (stddev ^ 2)
   var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
   var stdDev = 0;
-
   for (var i = 0; i < 3; i++) {
     stdDev += (pastAccelerations[i] - avgAccel) * (pastAccelerations[i] - avgAccel);
     console.log(stdDev);
   }
-
   stdDev = stdDev/3;
 
-  // note -- no need to waste effort squaring
-
+  // return 0 if low std dev
   if (stdDev < 1) {
     return 0;
   }
-
   else {
     return pVelocity + pastAccelerations[2];
   }
