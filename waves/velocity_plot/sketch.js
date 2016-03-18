@@ -29,9 +29,6 @@ function setup(){
 function adjustVelocityStdDev([pastAccelerations], Velocity, pVelocity) {
 
   // calculate StdDev
-
-  pastAccelerations = [1, 2, 3];
-
   var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
   var stdDev = 0;
 
