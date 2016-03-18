@@ -1,7 +1,10 @@
 var xPos = 0;
-var pAccelerationX, pVelocity, Velocity = 0;
+var pAccelerationX = 0;
+var pVelocity = 0;
+var Velocity = 0;
 var pastAccelerations = [0,0,0];
-var unadjustedVelocity, pUnadjustedVelocity = 0;
+var unadjustedVelocity = 0; 
+var pUnadjustedVelocity = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
