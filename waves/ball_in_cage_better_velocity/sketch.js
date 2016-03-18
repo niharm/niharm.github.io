@@ -85,7 +85,7 @@ function draw() {
 
 
     // velocity control
-    if (abs(velocityX) + abs(velocityY) > 100) {
+    if (abs(velocityX) + abs(velocityY) > 30) {
       p.velocity.x += sensitivity*velocityX; 
       p.velocity.y += sensitivity*velocityY; 
     }
