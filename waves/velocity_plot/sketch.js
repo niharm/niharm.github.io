@@ -34,12 +34,12 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
   var stdDev = 0;
 
   for (var i = 0; i < 3; i++) {
-    stdDev += (pastAccelerations[i] - stdDev) * (pastAccelerations[i] - stdDev) 
+    stdDev += (pastAccelerations[i] - stdDev) * (pastAccelerations[i] - stdDev);
   }
 
   stdDev = stdDev/3;
 
-  if (stdDev < 1) {
+  if (stdDev < 0) {
     return 0;
   }
 
@@ -49,6 +49,7 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
 }
 
 function draw(){
+  // add new velocity (maintain length of array)
   pastAccelerations.splice(0, 0);
   pastAccelerations.push(accelerationX);
 
