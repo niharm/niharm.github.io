@@ -1,6 +1,7 @@
 var xPos = 0;
-var pppVelocity, ppVelocity, pVelocity, Velocity = 0;
-var ppAccelerationX = 0;
+var pAccelerationX, pVelocity, Velocity = 0;
+var pastAccelerations = [0,0,0];
+var unadjustedVelocity, pUnadjustedVelocity = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -13,61 +14,64 @@ function setup(){
   textSize(size);
   textAlign(CENTER,CENTER);
 
-    background(0);
+      background(0);
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("X Velocity", windowWidth/2, 3*windowHeight/6);
-    text("X Velocity Filtered", windowWidth/2, 5*windowHeight/6);
+    text("Adjusted Velocity", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
 
-function highpassfilter(x, prev_x, prev_prev_x) {
-  var average = (x + prev_x + prev_prev_x)/3;
-  return x - average;
+function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
+
+  // calculate StdDev
+
+  var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
+  var stdDev = 0;
+
+  for (var i = 0; i < 3; i++) {
+    stdDev += (pastAccelerations[i] - stdDev) * (pastAccelerations[i] - stdDev) 
+  }
+
+  stdDev = stdDev/3;
+
+  if (stdDev < 1) {
+    return 0;
+  }
+
+  else {
+    return pVelocity + pastAccelerations[2];
+  }
 }
 
 function draw(){
+  pastAccelerations.splice(0, 0);
+  pastAccelerations.push(accelerationX);
+
+  Velocity = adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity);
+
+  unadjustedVelocity += accelerationX;
 
   if(xPos<windowWidth){
-
-    Velocity += accelerationX;
 
     stroke(255,0,0);
     line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,0,255);
-    line(xPos - 3, 3*windowHeight/6-map(Velocity,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(pVelocity,-40,40,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 3*windowHeight/6-map(pUnadjustedVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(unadjustedVelocity,-100,100,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    //line(xPos - 3, 5*windowHeight/6-map(pVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 5*windowHeight/6-map(pVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
 
+
+    xPos = xPos + 3; 
     pVelocity = Velocity;
-    ppVelocity = pVelocity;
-    pppVelocity = ppVelocity;
+    pUnadjustedVelocity = unadjustedVelocity;
+    pAccelerationX = accelerationX;
 
-    ppAccelerationX = pAccelerationX;
 
+    console.log(accelerationX);
+    console.log(unadjustedVelocity);
     console.log(Velocity);
 
-  // point(xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6));
-  // point(xPos,3*windowHeight/6-map(accelerationY,-40,40,-windowHeight/6,windowHeight/6));
-  // point(xPos,5*windowHeight/6-map(accelerationZ,-40,40,-windowHeight/6,windowHeight/6));
-
-  xPos = xPos + 3;
-
+  } 
 }
-
-}
-
-
-/*
-
-  //testing without map function gives same results
-
-  stroke(255,0,0);
-  point(xPos,windowHeight/6 - rotationX*(windowHeight/6)/180);
-  stroke(0,255,0);
-  point(xPos,3*windowHeight/6 - rotationY*(windowHeight/6)/180);
-  stroke(0,0,255);
-  point(xPos,windowHeight - (rotationZ)*(windowHeight/6)/180);
-
-*/
