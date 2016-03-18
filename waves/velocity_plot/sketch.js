@@ -17,36 +17,29 @@ function setup(){
   textSize(size);
   textAlign(CENTER,CENTER);
 
-      background(0);
-    noStroke();
-    text("X acceleration", windowWidth/2, windowHeight/6);
-    text("X Velocity", windowWidth/2, 3*windowHeight/6);
-    text("Adjusted V", windowWidth/2, 5*windowHeight/6);
-    stroke(255);
+  background(0);
+  noStroke();
+  text("X acceleration", windowWidth/2, windowHeight/6);
+  text("X Velocity", windowWidth/2, 3*windowHeight/6);
+  text("Adjusted V", windowWidth/2, 5*windowHeight/6);
+  stroke(255);
 
 }
 
 function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
 
-  console.log(pastAccelerations);
-
   // calculate StdDev
   var avgAccel = (pastAccelerations[0] + pastAccelerations[1] + pastAccelerations[2])/3;
   var stdDev = 0;
-
-  console.log(avgAccel);
 
   for (var i = 0; i < 3; i++) {
     stdDev += (pastAccelerations[i] - avgAccel) * (pastAccelerations[i] - avgAccel);
     console.log(stdDev);
   }
 
-  console.log(stdDev);
-
   stdDev = stdDev/3;
 
-  console.log(stdDev);
-
+  // note -- no need to waste effort squaring
 
   if (stdDev < 1) {
     return 0;
@@ -58,10 +51,11 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
 }
 
 function draw(){
-  // add new velocity (maintain length of array)
+  // add new acceleration (maintain length of array)
   pastAccelerations.splice(0, 1);
   pastAccelerations.push(accelerationX);
 
+  // adjust velocity
   Velocity = adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity);
 
   unadjustedVelocity += accelerationX;
@@ -80,11 +74,6 @@ function draw(){
     pVelocity = Velocity;
     pUnadjustedVelocity = unadjustedVelocity;
     pAccelerationX = accelerationX;
-
-
-    console.log(accelerationX);
-    console.log(unadjustedVelocity);
-    console.log(Velocity);
 
   } 
 }
