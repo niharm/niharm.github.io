@@ -13,11 +13,11 @@ function setup(){
   textSize(size);
   textAlign(CENTER,CENTER);
 
-      background(0);
+    background(0);
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
-    text("X jerk", windowWidth/2, 3*windowHeight/6);
-    text("X Velocity", windowWidth/2, 5*windowHeight/6);
+    text("X Velocity", windowWidth/2, 3*windowHeight/6);
+    text("X Velocity Filtered", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
@@ -36,15 +36,17 @@ function draw(){
     stroke(255,0,0);
     line(xPos - 3, windowHeight/6-map(pAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,0,255);
-    line(xPos - 3, 3*windowHeight/6-map(pAccelerationX - ppAccelerationX,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(accelerationX - pAccelerationX,-40,40,-windowHeight/6,windowHeight/6))
+    line(xPos - 3, 3*windowHeight/6-map(Velocity,-40,40,-windowHeight/6,windowHeight/6), xPos,3*windowHeight/6-map(pVelocity,-40,40,-windowHeight/6,windowHeight/6))
     stroke(0,255,0);
-    line(xPos - 3, 5*windowHeight/6-map(pVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
+    //line(xPos - 3, 5*windowHeight/6-map(pVelocity,-100,100,-windowHeight/6,windowHeight/6), xPos,5*windowHeight/6-map(Velocity,-100,100,-windowHeight/6,windowHeight/6))
 
     pVelocity = Velocity;
     ppVelocity = pVelocity;
     pppVelocity = ppVelocity;
 
     ppAccelerationX = pAccelerationX;
+
+    console.log(Velocity);
 
   // point(xPos,windowHeight/6-map(accelerationX,-40,40,-windowHeight/6,windowHeight/6));
   // point(xPos,3*windowHeight/6-map(accelerationY,-40,40,-windowHeight/6,windowHeight/6));
