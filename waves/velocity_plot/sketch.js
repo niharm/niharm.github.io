@@ -38,7 +38,7 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
 
   stdDev = stdDev/3;
 
-  text("stddev", windowWidth/2, 5*windowHeight/6);
+  text(stdDev, windowWidth/2, 5*windowHeight/6);
 
 
   if (stdDev < 0) {
