@@ -48,7 +48,7 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
   console.log(stdDev);
 
 
-  if (stdDev < 0) {
+  if (stdDev < 1) {
     return 0;
   }
 
