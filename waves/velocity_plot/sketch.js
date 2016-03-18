@@ -21,7 +21,6 @@ function setup(){
     noStroke();
     text("X acceleration", windowWidth/2, windowHeight/6);
     text("X Velocity", windowWidth/2, 3*windowHeight/6);
-    text("Adjusted Velocity", windowWidth/2, 5*windowHeight/6);
     stroke(255);
 
 }
@@ -38,6 +37,9 @@ function adjustVelocityStdDev(pastAccelerations, Velocity, pVelocity) {
   }
 
   stdDev = stdDev/3;
+
+  text("stddev", windowWidth/2, 5*windowHeight/6);
+
 
   if (stdDev < 0) {
     return 0;
