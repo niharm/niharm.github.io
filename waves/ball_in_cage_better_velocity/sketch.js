@@ -98,8 +98,8 @@ function draw() {
 
 
     // acceleration control
-    acceleration.x += -1*sensitivity*velocityX; 
-    acceleration.y += sensitivity*velocityY; 
+    acceleration.x += -1*sensitivity*velocityX/40; 
+    acceleration.y += sensitivity*velocityY/40; 
 
   }
 
