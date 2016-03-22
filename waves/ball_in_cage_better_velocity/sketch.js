@@ -109,7 +109,7 @@ function draw() {
   }
 
    else{
-    for acceleration control, reset acceleration to 0
+    //for acceleration control, reset acceleration to 0
     acceleration.x = 0;
     acceleration.y = 0;
   }
