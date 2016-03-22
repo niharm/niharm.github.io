@@ -47,22 +47,22 @@ function draw() {
   background(50, 95);
 
   // left line
-  stroke(237,34,93);
+  stroke(10,34,93);
   strokeWeight(40);
   line(0,height,0,0);
 
   // top line
-  stroke(237,34,93);
+  stroke(10,34,93);
   strokeWeight(40);
   line(0,0,width,0);
 
   // right line
-  stroke(237,34,93);
+  stroke(10,34,93);
   strokeWeight(40);
   line(width,height,width,0);
 
   // bottom line
-  stroke(237,34,93);
+  stroke(10,34,93);
   strokeWeight(40);
   line(width,height,0,height);
 
@@ -234,16 +234,16 @@ function drawCircles(){
       strokeWeight(3);
       switch(circleWall){
         case 0:
-          circleColor = 'rgba(20,34,93,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
         case 1:
-          circleColor = 'rgba(20,34,93,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
         case 2:
-          circleColor = 'rgba(20,34,93,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
         case 3:
-          circleColor = 'rgba(20,34,93,' + opacity + ')';
+          circleColor = 'rgba(237,34,93,' + opacity + ')';
           break;
       }
       stroke(circleColor);
