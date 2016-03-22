@@ -88,13 +88,13 @@ function draw() {
         console.log('Y' + velocityY);
     }
 
-    // velocity control
-    if (abs(velocityX) > 0) {
-      p.velocity.x += -1*sensitivity*velocityX; 
-    }
-    if (abs(velocityY) > 0) {
-      p.velocity.y += sensitivity*velocityY; 
-    }
+    // // velocity control
+    // if (abs(velocityX) > 0) {
+    //   p.velocity.x += -1*sensitivity*velocityX; 
+    // }
+    // if (abs(velocityY) > 0) {
+    //   p.velocity.y += sensitivity*velocityY; 
+    // }
 
 
     // acceleration control
