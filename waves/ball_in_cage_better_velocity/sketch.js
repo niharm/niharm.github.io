@@ -108,6 +108,12 @@ function draw() {
     console.log('velocityY' + p.velocity.y);
   }
 
+   else{
+    for acceleration control, reset acceleration to 0
+    acceleration.x = 0;
+    acceleration.y = 0;
+  }
+
   p.steer(stiffness, damping);
   p.update(acceleration);
   p.display();
