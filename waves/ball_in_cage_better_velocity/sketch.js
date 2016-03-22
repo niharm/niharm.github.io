@@ -234,16 +234,16 @@ function drawCircles(){
       strokeWeight(3);
       switch(circleWall){
         case 0:
-          circleColor = 'rgba(237,34,93,' + opacity + ')';
+          circleColor = 'rgba(20,34,93,' + opacity + ')';
           break;
         case 1:
-          circleColor = 'rgba(237,34,93,' + opacity + ')';
+          circleColor = 'rgba(20,34,93,' + opacity + ')';
           break;
         case 2:
-          circleColor = 'rgba(237,34,93,' + opacity + ')';
+          circleColor = 'rgba(20,34,93,' + opacity + ')';
           break;
         case 3:
-          circleColor = 'rgba(237,34,93,' + opacity + ')';
+          circleColor = 'rgba(20,34,93,' + opacity + ')';
           break;
       }
       stroke(circleColor);
