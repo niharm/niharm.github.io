@@ -101,6 +101,11 @@ function draw() {
     acceleration.x += -1*sensitivity*velocityX/40; 
     acceleration.y += sensitivity*velocityY/40; 
 
+    console.log('  ');
+    console.log('accelerationX' + acceleration.x);
+    console.log('accelerationY' + acceleration.y);
+    console.log('velocityX' + p.velocity.x);
+    console.log('velocityY' + p.velocity.y);
   }
 
   p.steer(stiffness, damping);
