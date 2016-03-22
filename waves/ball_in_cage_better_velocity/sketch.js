@@ -98,8 +98,8 @@ function draw() {
 
 
     // acceleration control
-    acceleration.x += -1*sensitivity*velocityX/40; 
-    acceleration.y += sensitivity*velocityY/40; 
+    acceleration.x = -1*sensitivity*velocityX/40; 
+    acceleration.y = sensitivity*velocityY/40; 
 
     console.log('  ');
     console.log('accelerationX' + acceleration.x);
@@ -108,7 +108,7 @@ function draw() {
     console.log('velocityY' + p.velocity.y);
   }
 
-   else{
+  else {
     //for acceleration control, reset acceleration to 0
     acceleration.x = 0;
     acceleration.y = 0;
