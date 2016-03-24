@@ -2,7 +2,7 @@ function Particle(x,y) {
   this.acceleration = createVector(0,0);
   this.velocity = createVector(0,0);
   this.position = createVector(x,y);
-  //this.maxspeed = Infinity;
+  this.maxspeed = 100;
   //this.maxForce = Infinity;
   this.target = createVector(width/2,height/2);
   this.r = 100;
@@ -11,7 +11,7 @@ function Particle(x,y) {
   this.update = function(additional_acceleration) {
     this.velocity.add(this.acceleration);
     this.velocity.add(additional_acceleration);
-    //this.velocity.limit(this.maxspeed); // Limit speed
+    this.velocity.limit(this.maxspeed); // Limit speed
     this.position.add(this.velocity);
     this.acceleration.mult(0);  // Reset acceleration to 0 each cycle
   }
