@@ -122,19 +122,19 @@ function draw() {
       strokeWeight(5 );
       if (circleWall == 0)
       {
-        stroke('blue');
+        stroke('red');
       }
       else if (circleWall == 1)
       {
-        stroke('blue');
+        stroke('red');
       }
       else if (circleWall == 2)
       {
-        stroke('blue');
+        stroke('red');
       }
       else if (circleWall == 3)
       {
-        stroke('blue');
+        stroke('red');
       }
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
       circles[i][5] += (windowWidth / 10);
