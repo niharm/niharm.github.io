@@ -47,7 +47,7 @@ function draw() {
   background(50, 95);
 
   // left line
-  stroke('blue');
+  stroke('green');
   strokeWeight(40);
   line(0,height,0,0);
 
@@ -89,17 +89,17 @@ function draw() {
     }
 
     // // velocity control
-    // if (abs(velocityX) > 0) {
-    //   p.velocity.x += -1*sensitivity*velocityX; 
-    // }
-    // if (abs(velocityY) > 0) {
-    //   p.velocity.y += sensitivity*velocityY; 
-    // }
+     if (abs(velocityX) > 0) {
+       p.velocity.x += -1*sensitivity*velocityX; 
+     }
+     if (abs(velocityY) > 0) {
+       p.velocity.y += sensitivity*velocityY; 
+     }
 
 
     // acceleration control
-    acceleration.x = -1*sensitivity*velocityX/40; 
-    acceleration.y = sensitivity*velocityY/40; 
+    //acceleration.x = -1*sensitivity*velocityX/40; 
+    //acceleration.y = sensitivity*velocityY/40; 
 
     console.log('  ');
     console.log('accelerationX' + acceleration.x);
