@@ -73,7 +73,7 @@ function setup() {
   p[0].lock();
 
   // Make a spring connecting both Particles
- // spring[0] = new VerletSpring2D(p[0],ball,height*(2/3),1);
+  spring[0] = new VerletSpring2D(p[0],ball,height*(2/3),0);
 
   // Anything we make, we have to add into the physics world
   physics.addParticle(p[0]);
@@ -147,7 +147,7 @@ function draw() {
   
   stroke(255, 242, 8);
   strokeWeight(100);
-  line(p[0].x,p[0].y,ball.x,ball.y);
+  //line(p[0].x,p[0].y,ball.x,ball.y);
   
   /*
   line(p[1].x,p[1].y,ball.x,ball.y);
