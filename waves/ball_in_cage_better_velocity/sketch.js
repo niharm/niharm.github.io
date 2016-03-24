@@ -1,6 +1,6 @@
 // Spring tied to center of screen, making sound when it hits the walls.
 
-var sensitivity = 50;
+var sensitivity = 1;
 var bounciness = 0.2;
 var damping = .01;
 var stiffness = 0;
