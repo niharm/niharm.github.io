@@ -47,7 +47,7 @@ function draw() {
   background(50, 95);
 
   // left line
-  stroke('blue');
+  stroke('green');
   strokeWeight(40);
   line(0,height,0,0);
 
