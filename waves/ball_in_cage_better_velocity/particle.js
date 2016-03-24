@@ -11,7 +11,7 @@ function Particle(x,y) {
   this.update = function(additional_acceleration) {
     this.velocity.add(this.acceleration);
     this.velocity.add(additional_acceleration);
-    this.velocity.limit(this.maxspeed); // Limit speed
+    // this.velocity.limit(this.maxspeed); // Limit speed
     this.position.add(this.velocity);
     this.acceleration.mult(0);  // Reset acceleration to 0 each cycle
   }
