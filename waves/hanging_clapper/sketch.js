@@ -185,10 +185,7 @@ function collision (wall,x,y,velocity)
   currentVelY = velocity.y;
 
   // reverse velocity
-  ball.velocity.x = -1*bounciness*p.velocity.x;
-
-
-
+  ball.velocity.x = -1*bounciness*ball.velocity.x;
 
   currentVelTotal = (abs(currentVelX) + abs(currentVelY));
   for (i = 0; i < numOsc; i++)
