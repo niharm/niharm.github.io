@@ -23,6 +23,7 @@ var calcVelX = 0;
 var calcVelY = 0;
 var detune = .2;
 var decay = 10;
+var bounciness = .9;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -120,19 +121,19 @@ function draw() {
       strokeWeight(5 );
       if (circleWall == 0)
       {
-        stroke('#5F08FF');
+        stroke('blue');
       }
       else if (circleWall == 1)
       {
-        stroke('#5F08FF');
+        stroke('blue');
       }
       else if (circleWall == 2)
       {
-        stroke('#5F08FF');
+        stroke('blue');
       }
       else if (circleWall == 3)
       {
-        stroke('#5F08FF');
+        stroke('blue');
       }
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
       circles[i][5] += (windowWidth / 10);
@@ -182,6 +183,13 @@ function collision (wall,x,y,velocity)
 {
   currentVelX = velocity.x;
   currentVelY = velocity.y;
+
+  // reverse velocity
+  ball.velocity.x = -1*bounciness*p.velocity.x;
+
+
+
+
   currentVelTotal = (abs(currentVelX) + abs(currentVelY));
   for (i = 0; i < numOsc; i++)
   {
