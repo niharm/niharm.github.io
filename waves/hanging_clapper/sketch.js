@@ -23,8 +23,8 @@ var calcVelX = 0;
 var calcVelY = 0;
 var detune = .2;
 var decay = 10;
-var bounciness = .3;
-var sensitivity = 5;
+var bounciness = .2;
+var sensitivity = 3;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
