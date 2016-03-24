@@ -23,7 +23,8 @@ var calcVelX = 0;
 var calcVelY = 0;
 var detune = .2;
 var decay = 10;
-var bounciness = .9;
+var bounciness = .3;
+var sensitivity = 5;
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -168,9 +169,9 @@ function draw() {
   // accelerate x
  // if (abs(ball.x - width/2) < width/4) {
   if (ball.getVelocity().x < 0) {
-    ball.addVelocity(abs(accelerationX)*-10); }
+    ball.addVelocity(abs(accelerationX)* -1 * sensitivity); }
   else  {
-    ball.addVelocity(abs(accelerationX)*10); }
+    ball.addVelocity(abs(accelerationX)* sensitivity); }
   /*
   fill(255);
   noStroke();
