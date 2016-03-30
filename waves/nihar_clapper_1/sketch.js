@@ -111,7 +111,7 @@ function draw() {
   
   // Draw a line between the particles
   stroke(255, 255, 255);
-  strokeWeight(10);
+  strokeWeight(2);
   line(p[0].x,p[0].y,ball.x,ball.y);
   
   // Display the ball
