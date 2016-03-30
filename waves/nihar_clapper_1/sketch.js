@@ -26,9 +26,9 @@ var bendSpeedFast = 1.0;
 var decayMax = .9;
 var timeOfLastRing = 0;
 var timeSinceLastRing = 0;
-//
-var circleColor = [155, 211, 221];
 
+// for circle waves
+var maxCircles = 40;
 
 var physics;
 var p = [];
@@ -62,30 +62,24 @@ function setup() {
   physics = new VerletPhysics2D();
   physics.addBehavior(new GravityBehavior(new Vec2D(0,60)));
   physics.setDrag(0.011);
+
   // Set the world's bounding box
   physics.setWorldBounds(new Rect(0,0,width,height));
-  
-  // Make two particles
-  /*
-  p[0] = new Particle(new Vec2D(width/2,0));
-  p[1] = new Particle(new Vec2D(width,height/2));
-  p[2] = new Particle(new Vec2D(width/2,height));
-  p[3] = new Particle(new Vec2D(0,height/2));
-  */
+
 
   p[0] = new Particle(new Vec2D(width/2,0));
-
   ball = new Particle(new Vec2D(width/2,height/2));
   // Lock one in place
   p[0].lock();
 
-  // Make a spring connecting both Particles
+  // Make a tight spring connecting both Particles
   spring[0] = new VerletSpring2D(p[0],ball,height*(4/5),1);
 
   // Anything we make, we have to add into the physics world
   physics.addParticle(p[0]);
   physics.addParticle(ball);
   physics.addSpring(spring[0]);
+
 }
 
 function draw() {
@@ -112,47 +106,18 @@ function draw() {
     collision(3, ball.x, ball.y,ball.getVelocity());
   }
   
+  drawCircles();
+  
+  
   // Draw a line between the particles
-  
-  
-
-  
-  for (var i = 0; i < circles.length; i++)
-  {
-    var thisCircle = circles[i];
-    var circleSize = thisCircle[5];
-    if (circleSize < (sqrt(2) * width *2))
-    {
-      noFill();
-      strokeWeight(3);
-
-      stroke(circleColor);
-      
-      ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
-      circles[i][5] += (windowWidth / 10);
-    }
-    else
-    {
-      circles.splice(i,1);
-    }
-  }
-  
-  
   stroke(255, 255, 255);
-  strokeWeight(2);
+  strokeWeight(10);
   line(p[0].x,p[0].y,ball.x,ball.y);
   
-  /*
-  line(p[1].x,p[1].y,ball.x,ball.y);
-  line(p[2].x,p[2].y,ball.x,ball.y);
-  line(p[3].x,p[3].y,ball.x,ball.y);
-  */
-
   // Display the ball
   ball.display();
   
   // Move the second one according to the mouse
-  
   if (mouseIsPressed) {
     ball.x = mouseX;
     ball.y = mouseY;
@@ -184,7 +149,8 @@ function collision (wall,x,y,velocity)
   currentVelTotal = (abs(currentVelX) + abs(currentVelY));
   ring(currentVelTotal / 500.0);
   //text(round(currentVelTotal), 100, 100);
-  circles.push([wall,x,y,velocity.x, velocity.y,0]);
+  circles.push([wall,x,y,0,0]); // wall, position.x, position.y, circle_size, num_circles
+
 }
 
 
@@ -220,6 +186,38 @@ function initSound(){
     gains.push(g);
   }
 
+}
+
+
+function drawCircles(){
+  for (var i = 0; i < circles.length; i++)
+  {
+    var thisCircle = circles[i];
+    var circleSize = thisCircle[3];
+
+    // calculate opacity based on number of circles so far
+    var numCircles = thisCircle[4];
+    var opacity = 1 - numCircles/maxCircles;
+
+    if (numCircles < maxCircles)
+    {
+      // draw circle
+      noFill();
+      strokeWeight(3);
+      var circleColor = 'rgba(155, 211, 221,' + opacity + ')';
+      console.log(circleColor);
+      stroke(circleColor);
+      ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
+
+      //increment next version
+      circles[i][3] += (width / 15);
+      ++circles[i][4];
+    }
+    else
+    {
+      circles.splice(i,1);
+    }
+  } 
 }
 
 function ring(amplitude)
