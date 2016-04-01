@@ -7,7 +7,7 @@ function Particle(x,y) {
   this.position = createVector(x,y);
   //this.maxspeed = Infinity;
   //this.maxForce = Infinity;
-  this.resting = createVector(width/2,2*height/3);
+  this.resting = createVector(width/2,2*height/3); // where the ball hangs
   this.base = createVector(width/2,0); // where the clapper is attached
   this.r = 50;
 
