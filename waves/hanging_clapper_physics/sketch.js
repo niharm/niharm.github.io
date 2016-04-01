@@ -44,6 +44,8 @@ var sensitivity = 1;
 var stiffness = 0.05;
 var damping = 0.05;
 
+var max_angle;
+
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
@@ -55,6 +57,8 @@ function setup() {
 
   initSound();
 
+  //calculate maximum angle
+  max_angle = Math.asin((width/2)/(height*2/3)) * 180 / Math.PI;
 }
 
 function draw() {
@@ -74,7 +78,7 @@ function draw() {
 
   // Move the second one according to the mouse
   if (mouseIsPressed) {
-    p.theta = 40;
+    p.theta = 90;
     p.velocity = 0;
     // add theta control
   }
@@ -91,7 +95,7 @@ function collision ()
   var collision = false;
   if (p.position.x < buffer)
   {
-    p.position.x = 0;
+    p.theta = -1 * max_angle;
     collision = true;
   }
   else if (p.position.y < buffer)
@@ -101,7 +105,7 @@ function collision ()
   }
   else if (p.position.x > width - buffer)
   {
-    p.position.x = width;
+    p.theta = max_angle;
     collision = true;
   }
   else if (p.position.y > height - buffer)

@@ -25,7 +25,7 @@ function Particle(x,y) {
 
     var theta_in_radians = this.theta * Math.PI / 180; // temp
     this.position.x = sin(theta_in_radians) * this.resting.y + this.resting.x;
-    this.position.y = cos(theta_in_radians) * this.resting.y;
+    this.position.y =  cos(theta_in_radians) * this.resting.y;
 
     console.log(theta_in_radians);
     console.log(this.theta);
