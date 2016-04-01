@@ -25,134 +25,96 @@ var bendSpeedSlow = 2.0;
 var bendSpeedFast = 1.0;
 var decayMax = .9;
 var timeOfLastRing = 0;
-var timeSinceLastRing = 0;
+var detune = .2;
+var decay = 10;
 
 // for circle waves
 var maxCircles = 40;
 
-var physics;
-var p = [];
-var spring = [];
-var ball;
-var spacing = 200;
-var speedX = 0;
-var speedY = 0;
+var circles = [];
+var p, acceleration;
+
 var s = [];
 var e = [];
-var circles = [];
 var buffer = 1;
 var i;
-var currentVelX = 0;
-var currentVelY = 0;
-var calcVelX = 0;
-var calcVelY = 0;
-var detune = .2;
-var decay = 10;
+
 var bounciness = 0.1;
 var sensitivity = 1;
+var stiffness = 0.05;
+var damping = 0.05;
+
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
+
   background(0);
+
+  p = new Particle(width/2, height/2);
+  acceleration = createVector(0, 0);
+
   initSound();
-  textSize(windowHeight/10);
-  textAlign(CENTER, CENTER);
-
-  // Initialize the physics
-  physics = new VerletPhysics2D();
-  physics.addBehavior(new GravityBehavior(new Vec2D(0,60)));
-  physics.setDrag(0.011);
-
-  // Set the world's bounding box
-  physics.setWorldBounds(new Rect(0,0,width,height));
-
-
-  p[0] = new Particle(new Vec2D(width/2,0));
-  ball = new Particle(new Vec2D(width/2,height/2));
-  // Lock one in place
-  p[0].lock();
-
-  // Make a tight spring connecting both Particles
-  spring[0] = new VerletSpring2D(p[0],ball,height*(4/5),1);
-
-  // Anything we make, we have to add into the physics world
-  physics.addParticle(p[0]);
-  physics.addParticle(ball);
-  physics.addSpring(spring[0]);
 
 }
 
 function draw() {
 
-  background(0,50);
-
-  console.log(ball.x);
-
-  // Update the physics world
-  physics.update();
-  
-  if (ball.x < buffer) 
-  {
-    collision(0, ball.x, ball.y, ball.getVelocity());
-  }
-  else if (ball.y < buffer)
-  {
-    collision(1, ball.x, ball.y,ball.getVelocity());
-  }
-  else if (ball.x > (width - buffer))
-  {
-    collision(2, ball.x, ball.y,ball.getVelocity());
-  }
-  else if (ball.y > (height - buffer))
-  {
-    collision(3, ball.x, ball.y,ball.getVelocity());
-  }
-  
-  drawCircles();
-  
-  
-  // Draw a line between the particles
-  stroke(255, 255, 255);
-  strokeWeight(2);
-  line(p[0].x,p[0].y,ball.x,ball.y);
-  
-  // Display the ball
-  ball.display();
-  
-  // Move the second one according to the mouse
-  if (mouseIsPressed) {
-    ball.x = mouseX;
-    ball.y = mouseY;
-  }
+  background(30,50);
   
   // accelerate x
- // if (abs(ball.x - width/2) < width/4) {
-  if (ball.getVelocity().x < 0) {
-    ball.addVelocity(abs(accelerationX)* -1 * sensitivity); }
+  p.velocity += -1*sensitivity*accelerationX;
+  p.velocity += sensitivity*accelerationY;
+
+  p.steer(stiffness, damping);
+  p.update(acceleration);
+  p.display();
+
+  collision();
+  drawCircles();
+
+  // Move the second one according to the mouse
+  if (mouseIsPressed) {
+    p.theta = 90;
+    p.velocity = 0;
+    // add theta control
+  }
+
+  if (p.velocity < 0) {
+    p.velocity += abs(accelerationX) * -1 * sensitivity; }
   else  {
-    ball.addVelocity(abs(accelerationX)* sensitivity); }
-  /*
-  fill(255);
-  noStroke();
-  text("velocity X: "+str(round(currentVelX)), width/2,3*height/4);
-  text("velocity Y: "+str(round(currentVelY)), width/2,1*height/4);
-  */
+    p.velocity += abs(accelerationX)* sensitivity; }
+
 }
 
-function collision (wall,x,y,velocity)
+function collision ()
 {
-  currentVelX = velocity.x;
-  currentVelY = velocity.y;
+  var collision = false;
+  if (p.position.x < buffer)
+  {
+    p.position.x = 0;
+    collision = true;
+  }
+  else if (p.position.y < buffer)
+  {
+    p.position.y = 0;
+    collision = true;
+  }
+  else if (p.position.x > width - buffer)
+  {
+    p.position.x = width;
+    collision = true;
+  }
+  else if (p.position.y > height - buffer)
+  {
+    p.position.y = height;
+    collision = true;
+  }
 
-  // reverse velocity
-  ball.scaleVelocity(bounciness*-1);
-// /  ball.velocity.x = -1*bounciness*ball.getVelocity().x;
-
-  currentVelTotal = (abs(currentVelX) + abs(currentVelY));
-  ring(currentVelTotal / 500.0);
-  //text(round(currentVelTotal), 100, 100);
-  circles.push([wall,x,y,0,0]); // wall, position.x, position.y, circle_size, num_circles
-
+  if (collision) {
+    ring(abs(p.velocity) / 500.0); // ring based on value of velocity
+    p.velocity = -1*bounciness*p.velocity;
+    circles.push([0,p.position.x,p.position.y,0,0]); // 0, position.x, position.y, circle_size, num_circles
+  }
 }
 
 
@@ -190,6 +152,7 @@ function initSound(){
 
 }
 
+// circle = [0, x, y, circleSize, numCircles]
 
 function drawCircles(){
   for (var i = 0; i < circles.length; i++)
@@ -224,7 +187,7 @@ function drawCircles(){
 
 function ring(amplitude)
 {
-  timeSinceLastRing = (context.currentTime - timeOfLastRing);
+  var timeSinceLastRing = (context.currentTime - timeOfLastRing);
   
   if (timeSinceLastRing > 0.1)
   {
