@@ -74,7 +74,7 @@ function draw() {
 
   // Move the second one according to the mouse
   if (mouseIsPressed) {
-    p.theta = 90;
+    p.theta = 40;
     p.velocity = 0;
     // add theta control
   }

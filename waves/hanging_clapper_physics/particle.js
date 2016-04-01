@@ -13,19 +13,19 @@ function Particle(x,y) {
 
   // Integrate acceleration
   this.update = function(additional_acceleration) {
-  	this.velocity += this.acceleration;
-  	this.acceleration += this.additional_acceleration;
+    this.velocity += this.acceleration;
+    this.acceleration += this.additional_acceleration;
     //this.velocity.limit(this.maxspeed); // Limit speed
     this.theta += this.velocity;
 
     if (abs(this.theta) < 0.02) {
-    	this.theta = 0;
-    	this.velocity = 0;
+      this.theta = 0;
+      this.velocity = 0;
     }
 
     var theta_in_radians = this.theta * Math.PI / 180; // temp
-    this.position.x = sin(theta_in_radians) * this.resting.x + this.resting.x;
-    this.position.y = cos(theta_in_radians) * this.resting.x + this.resting.y - this.resting.x;
+    this.position.x = sin(theta_in_radians) * this.resting.y + this.resting.x;
+    this.position.y = cos(theta_in_radians) * this.resting.y;
 
     console.log(theta_in_radians);
     console.log(this.theta);
