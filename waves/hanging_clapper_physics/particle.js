@@ -18,6 +18,7 @@ function Particle(x,y) {
     //this.velocity.limit(this.maxspeed); // Limit speed
     this.theta += this.velocity;
 
+    // prevent useless small calculations
     if (abs(this.theta) < 0.02) {
       this.theta = 0;
       this.velocity = 0;
@@ -26,10 +27,6 @@ function Particle(x,y) {
     var theta_in_radians = this.theta * Math.PI / 180; // temp
     this.position.x = sin(theta_in_radians) * this.resting.y + this.resting.x;
     this.position.y =  cos(theta_in_radians) * this.resting.y;
-
-    console.log(theta_in_radians);
-    console.log(this.theta);
-
     this.acceleration = 0;  // Reset acceleration to 0 each cycle
   }
 

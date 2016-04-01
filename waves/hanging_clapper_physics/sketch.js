@@ -40,7 +40,7 @@ var buffer = 1;
 var i;
 
 var bounciness = 0.1;
-var sensitivity = 1;
+var sensitivity = 0.001;
 var stiffness = 0.05;
 var damping = 0.05;
 
@@ -59,15 +59,13 @@ function setup() {
 
   //calculate maximum angle
   max_angle = Math.asin((width/2)/(height*2/3)) * 180 / Math.PI;
+
+  console.log(height);
 }
 
 function draw() {
 
   background(30,50);
-  
-  // accelerate x
-  p.velocity += -1*sensitivity*accelerationX;
-  p.velocity += sensitivity*accelerationY;
 
   p.steer(stiffness, damping);
   p.update(acceleration);
