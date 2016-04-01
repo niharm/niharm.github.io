@@ -40,7 +40,7 @@ var buffer = 1;
 var i;
 
 var bounciness = 0.1;
-var sensitivity = 0.01;
+var sensitivity = 0.05;
 var stiffness = 0.05;
 var damping = 0.05;
 
