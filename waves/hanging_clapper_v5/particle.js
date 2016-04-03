@@ -29,13 +29,13 @@ function Particle(x,y) {
 
     if (this.theta > MAX_ANGLE) {
       console.log('greater');
-      theta = MAX_ANGLE;
+      this.theta = MAX_ANGLE;
       collision();
     }
 
     if (this.theta < -1 * MAX_ANGLE) {
       console.log('less');
-      theta = -1 * MAX_ANGLE;
+      this.theta = -1 * MAX_ANGLE;
       collision();
     }
 
