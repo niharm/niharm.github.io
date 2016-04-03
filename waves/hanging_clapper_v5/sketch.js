@@ -31,7 +31,7 @@ var decay = 10;
 var context;
 
 // for circle waves
-var maxCircles = 40;
+var MAX_CIRCLES = 20;
 
 var circles = [];
 var p, acceleration;
@@ -143,9 +143,9 @@ function drawCircles(){
 
     // calculate opacity based on number of circles so far
     var numCircles = thisCircle[4];
-    var opacity = 1 - numCircles/maxCircles;
+    var opacity = 1 - numCircles/MAX_CIRCLES;
 
-    if (numCircles < maxCircles)
+    if (numCircles < MAX_CIRCLES)
     {
       // draw circle
       noFill();
