@@ -24,25 +24,24 @@ function Particle(x,y) {
       this.velocity = 0;
     }
 
-    console.log('theta ' + this.theta);
-    console.log('MAX_ANGLE ' + MAX_ANGLE);
-
+    // test for collision
+    var collision = false;
     if (this.theta > MAX_ANGLE) {
-      console.log('greater');
       this.theta = MAX_ANGLE;
-      collision();
+      collision = true;
     }
-
     if (this.theta < -1 * MAX_ANGLE) {
-      console.log('less');
       this.theta = -1 * MAX_ANGLE;
-      collision();
+      collision = true;
     }
 
     var theta_in_radians = this.theta * Math.PI / 180; // temp
     this.position.x = sin(theta_in_radians) * this.resting.y + this.resting.x;
     this.position.y =  cos(theta_in_radians) * this.resting.y;
     this.acceleration = 0;  // Reset acceleration to 0 each cycle
+
+    // call collision if it happened
+    collision();
   }
 
   this.steer = function(k1,k2) {
