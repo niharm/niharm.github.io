@@ -25,14 +25,14 @@ function Particle(x,y) {
     }
 
     // test for collision
-    var collision = false;
+    var collision_occurred = false;
     if (this.theta > MAX_ANGLE) {
       this.theta = MAX_ANGLE;
-      collision = true;
+      collision_occurred = true;
     }
     if (this.theta < -1 * MAX_ANGLE) {
       this.theta = -1 * MAX_ANGLE;
-      collision = true;
+      collision_occurred = true;
     }
 
     var theta_in_radians = this.theta * Math.PI / 180; // temp
@@ -41,7 +41,8 @@ function Particle(x,y) {
     this.acceleration = 0;  // Reset acceleration to 0 each cycle
 
     // call collision if it happened
-    collision();
+    if (collision_occurred) {
+      collision(); }
   }
 
   this.steer = function(k1,k2) {
