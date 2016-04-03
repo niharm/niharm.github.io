@@ -91,7 +91,7 @@ function draw() {
 }
 
 function collision() {
-    ring(abs(p.velocity) / 500.0); // ring based on value of velocity
+    ring(abs(p.velocity) / 150.0); // ring based on value of velocity
     p.velocity = -1*bounciness*p.velocity;
     circles.push([0,p.position.x,p.position.y,0,0]); // 0, position.x, position.y, circle_size, num_circles
 }
@@ -189,11 +189,12 @@ window.addEventListener('touchstart', function()
 {
   counter = 0;
   if (doFirst) {
-    myNoise = context.createOscillator('Noise');
-    myNoise.start(0);
-    myNoise.disconnect();
+    for (i = 0; i < numOsc; i++)
+    {
+      oscs[i].start();
+    }
   }
-
+  
   // this stuff is to avoid tuning issues caused by 48k vs 44.1k sample rates
   var playInitSound = function playInitSound() {
       var source = context.createBufferSource();
@@ -285,6 +286,6 @@ function sweep()
       oscs[i].frequency.setTargetAtTime((bellRatios14[i] * fundamental * octave), 0.0, random(bendSpeedFast, bendSpeedSlow));
     }
     
-    oscs[i].detune.value = random(-0, +0); // random detuning
+  oscs[i].detune.value = random(-6, +6); // random detuning
   }
 }
