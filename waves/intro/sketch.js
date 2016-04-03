@@ -1,9 +1,10 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
   background(40);
-  textSize(height/30);
+  textSize(width/10); // TODO: set maximum here
   fill('white');
-  text('where are you?', width/6,height/10);
+  textAlign(CENTER);
+  text('where are you?', width/2,height/10);
 
   fill('red');
   rect(width/6, height/5, width/6, 3*height/5);
