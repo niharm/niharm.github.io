@@ -1,4 +1,4 @@
-// Spring tied to center of screen, making sound when it hits the walls.
+// HANGING CLAPPER
 
 var numOsc = 10;
 var gains = [];
@@ -28,6 +28,8 @@ var timeOfLastRing = 0;
 var detune = .2;
 var decay = 10;
 
+var context;
+
 // for circle waves
 var maxCircles = 40;
 
@@ -40,7 +42,7 @@ var buffer = 1;
 var i;
 
 var bounciness = 0.1;
-var sensitivity = 0.06;
+var sensitivity = 0.3;
 var stiffness = 0.05;
 var damping = 0.05;
 
@@ -58,10 +60,10 @@ function setup() {
   initSound();
 
   //calculate maximum angle
-  MAX_ANGLE = Math.asin((width/2)/(height*2/3)) * 180 / Math.PI;
-  console.log(MAX_ANGLE);
-
-  console.log(height);
+  if (height < width) { MAX_ANGLE = 89; }// landscape orientation
+  else {
+    MAX_ANGLE = Math.asin((width/2)/(height*2/3)) * 180 / Math.PI;
+  }
 }
 
 function draw() {
@@ -72,7 +74,6 @@ function draw() {
   p.update(acceleration);
   p.display();
 
-  collision();
   drawCircles();
 
   // Move the second one according to the mouse
@@ -89,41 +90,18 @@ function draw() {
 
 }
 
-function collision ()
-{
-  var collision = false;
-  if (p.position.x < buffer)
-  {
-    p.theta = -1 * MAX_ANGLE;
-    collision = true;
-  }
-  else if (p.position.y < buffer)
-  {
-    p.position.y = 0;
-    collision = true;
-  }
-  else if (p.position.x > width - buffer)
-  {
-    p.theta = MAX_ANGLE;
-    collision = true;
-  }
-  else if (p.position.y > height - buffer)
-  {
-    p.position.y = height;
-    collision = true;
-  }
-
-  if (collision) {
+function collision() {
     ring(abs(p.velocity) / 500.0); // ring based on value of velocity
     p.velocity = -1*bounciness*p.velocity;
     circles.push([0,p.position.x,p.position.y,0,0]); // 0, position.x, position.y, circle_size, num_circles
-  }
 }
 
 
 function initSound(){
 
-  context = new AudioContext();
+  // Fix up prefixing
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+context = new AudioContext();
   
   //create a random array of frequencies
   for (var i = 0; i < numOsc; i++) {
@@ -173,7 +151,7 @@ function drawCircles(){
       noFill();
       strokeWeight(3);
       var circleColor = 'rgba(155, 211, 221,' + opacity + ')';
-      console.log(circleColor);
+      //console.log(circleColor);
       stroke(circleColor);
       ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
 
@@ -240,17 +218,17 @@ window.addEventListener('touchstart', function()
 function sweep()
 {
   //roll dice for octave
-  var octave = pow(2,(round(random(1,1))));
+  var octave = pow(2,(round(random(0,3))));
   print(octave);
   
   //roll dice for which bell overtone series
-  var whichBell = round(random(0,0));
+  var whichBell = round(random(0,13));
   print(whichBell);
   
   // now adjust the overtones to match the chosen bell
   for (var i = 0; i < numOsc; i++) 
   {
-    if (whichBell == 0)
+    if (whichBell === 0)
     {
       oscs[i].frequency.setTargetAtTime((bellRatios1[i] * fundamental * octave), 0.0, random(bendSpeedFast, bendSpeedSlow));
     }
