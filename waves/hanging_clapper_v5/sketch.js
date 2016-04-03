@@ -41,10 +41,10 @@ var e = [];
 var buffer = 1;
 var i;
 
-var bounciness = 0.1;
-var sensitivity = 0.3;
+var bounciness = 0.2;
+var sensitivity = 0.2;
 var stiffness = 0.05;
-var damping = 0.05;
+var damping = 0.08;
 
 var MAX_ANGLE;
 
