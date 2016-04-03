@@ -10,7 +10,7 @@ function setup() {
   rect(width/6, height/5, width/6, 3*height/5);
   fill('green');
   rect(2*width/6, height/5, width/6, 3*height/5);
-  fill('yellow');
+  fill('blue');
   rect(3*width/6, height/5, width/6, 3*height/5);
   fill('orange');
   rect(4*width/6, height/5, width/6, 3*height/5);
@@ -41,7 +41,7 @@ function touchEnded() {
 
     else if ((touchX > 3*width/6) && (touchX < 4*width/6)) {
       console.log(3*width/6);
-      background('yellow'); 
+      background('blue'); 
     }
 
     else if ((touchX > 4*width/6) && (touchX < 5*width/6)) {
