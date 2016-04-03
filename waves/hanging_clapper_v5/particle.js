@@ -24,12 +24,17 @@ function Particle(x,y) {
       this.velocity = 0;
     }
 
+    console.log('theta ' + this.theta);
+    console.log('MAX_ANGLE ' + MAX_ANGLE);
+
     if (this.theta > MAX_ANGLE) {
+      console.log('greater');
       theta = MAX_ANGLE;
       collision();
     }
 
     if (this.theta < -1 * MAX_ANGLE) {
+      console.log('less');
       theta = -1 * MAX_ANGLE;
       collision();
     }
