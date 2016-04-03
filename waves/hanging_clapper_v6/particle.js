@@ -11,10 +11,19 @@ function Particle(x,y) {
   this.base = p5_bell.createVector(p5_bell.width/2,0); // where the clapper is attached
   this.r = 50;
 
+  //calculate maximum angle
+  var MAX_ANGLE;
+  if (p5_bell.height < p5_bell.width) { MAX_ANGLE = 89; }// landscape orientation
+  else {
+    MAX_ANGLE = Math.asin((p5_bell.width/2)/(p5_bell.height*2/3)) * 180 / Math.PI;
+  }
+
+  // Calculate Max Angle
+
+
   // Integrate acceleration
-  this.update = function(additional_acceleration) {
+  this.update = function() {
     this.velocity += this.acceleration;
-    this.acceleration += this.additional_acceleration;
     //this.velocity.limit(this.maxspeed); // Limit speed
     this.theta += this.velocity;
 
@@ -26,12 +35,13 @@ function Particle(x,y) {
 
     // test for collision
     var collision_occurred = false;
-    if (this.theta > p5_bell.MAX_ANGLE) {
-      this.theta = p5_bell.MAX_ANGLE;
+
+    if (this.theta > MAX_ANGLE) {
+      this.theta = MAX_ANGLE;
       collision_occurred = true;
     }
-    if (this.theta < -1 * p5_bell.MAX_ANGLE) {
-      this.theta = -1 * p5_bell.MAX_ANGLE;
+    if (this.theta < -1 * MAX_ANGLE) {
+      this.theta = -1 * MAX_ANGLE;
       collision_occurred = true;
     }
 
@@ -42,7 +52,7 @@ function Particle(x,y) {
 
     // call collision if it happened
     if (collision_occurred) {
-      collision(); }
+      p5_bell.collision(); }
   }
 
   this.steer = function(k1,k2) {

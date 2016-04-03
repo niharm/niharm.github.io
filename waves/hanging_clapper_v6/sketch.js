@@ -46,9 +46,6 @@ var bellSketch = function(s) {
   var stiffness = 0.05;
   var damping = 0.08;
 
-  var MAX_ANGLE;
-
-
   s.setup = function() {
     s.createCanvas(s.windowWidth,s.windowHeight);
     s.background(0);
@@ -59,12 +56,6 @@ var bellSketch = function(s) {
     acceleration = s.createVector(0, 0);
 
     s.initSound();
-
-    //calculate maximum angle
-    if (height < width) { MAX_ANGLE = 89; }// landscape orientation
-    else {
-      MAX_ANGLE = Math.asin((width/2)/(height*2/3)) * 180 / Math.PI;
-    }
   }
 
   s.draw = function() {
@@ -72,7 +63,7 @@ var bellSketch = function(s) {
     s.background(0);
 
     p.steer(stiffness, damping);
-    p.update(acceleration);
+    p.update();
     p.display();
 
     s.drawCircles();
@@ -146,12 +137,12 @@ var bellSketch = function(s) {
       if (numCircles < MAX_CIRCLES)
       {
         // draw circle
-        noFill();
-        strokeWeight(3);
+        s.noFill();
+        s.strokeWeight(3);
         var circleColor = 'rgba(155, 211, 221,' + opacity + ')';
         //console.log(circleColor);
-        stroke(circleColor);
-        ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
+        s.stroke(circleColor);
+        s.ellipse(thisCircle[1], thisCircle[2], circleSize, circleSize);
 
         //increment next version
         circles[i][3] += (width / 15);
@@ -164,7 +155,7 @@ var bellSketch = function(s) {
     } 
   }
 
-  s.ring = function() {
+  s.ring = function(amplitude) {
     var timeSinceLastRing = (context.currentTime - timeOfLastRing);
     
     if (timeSinceLastRing > 0.1)
@@ -173,9 +164,9 @@ var bellSketch = function(s) {
       for (var i = 0; i < numOsc; i++) 
       {
         //ramp up to the amplitude of the harmonic quickly (within 7ms)
-        gains[i].gain.setTargetAtTime((random(0.0000001,(amplitude *(1.0/numOsc)))), context.currentTime, 0.0001);
+        gains[i].gain.setTargetAtTime((s.random(0.0000001,(amplitude *(1.0/numOsc)))), context.currentTime, 0.0001);
         //ramp down to almost zero (non-zero to avoid divide by zero in exponential function) over the decay time for the harmonic
-        gains[i].gain.setTargetAtTime(0.0000001, (context.currentTime+.015), random(0.00001, decayMax));
+        gains[i].gain.setTargetAtTime(0.0000001, (context.currentTime+.015), s.random(0.00001, decayMax));
       }
     }
     timeOfLastRing = context.currentTime;
