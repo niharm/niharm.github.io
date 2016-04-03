@@ -23,6 +23,10 @@ function draw() {
   fill(0);
 }
 
+function touchStarted() {
+  // empty to make sure screen won't be pulled around
+}
+
 function touchEnded() {
 
   if ((touchY > height/5) && (touchY < 4*height/5)) {
