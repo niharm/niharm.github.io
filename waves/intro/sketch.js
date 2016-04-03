@@ -8,12 +8,13 @@ function draw() {
 }
 
 function touchStarted() {
+  background(0);
   ellipse(touchX, touchY, 5, 5);
   // prevent default
-  return false;
   fill('white');
   textSize(20,20);
   text(touchX, 20,20);
   text(ptouchX, 20,100);
+  return false;
 
 }
