@@ -1,50 +1,61 @@
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  background(40);
-  textSize(width/10); // TODO: set maximum here
-  fill('white');
-  textAlign(CENTER);
-  text('where are you?', width/2,height/10);
+var introSketch = function(s) {
+
+  var width, height;
+
+  s.setup = function() {
+
+    s.createCanvas(s.windowWidth, s.windowHeight);
+    s.background(40);
+    width = s.width;
+    height = s.height
+    s.textSize(width/10); // TODO: set maximum here
+    s.fill('white');
+    s.textAlign(s.CENTER);
+    s.text('where are you?', width/2,height/4);
 
 
-  fill('red');
-  quad(2*width/8, height/3, 3*width/8,height/3, 2*width/6, 2*height/3, width/6, 2*height/3)
-  fill('green');
-  quad(3*width/8, height/3, 4*width/8,height/3, 3*width/6, 2*height/3, 2*width/6, 2*height/3)
-  fill('blue');
-  quad(4*width/8, height/3, 5*width/8,height/3, 4*width/6, 2*height/3, 3*width/6, 2*height/3)
-  fill('yellow');
-  quad(5*width/8, height/3, 6*width/8,height/3, 5*width/6, 2*height/3, 4*width/6, 2*height/3)
+    s.fill('red');
+    s.quad(2*width/8, height/3, 3*width/8,height/3, 2*width/6, 2*height/3, width/6, 2*height/3)
+    s.fill('green');
+    s.quad(3*width/8, height/3, 4*width/8,height/3, 3*width/6, 2*height/3, 2*width/6, 2*height/3)
+    s.fill('blue');
+    s.quad(4*width/8, height/3, 5*width/8,height/3, 4*width/6, 2*height/3, 3*width/6, 2*height/3)
+    s.fill('yellow');
+    s.quad(5*width/8, height/3, 6*width/8,height/3, 5*width/6, 2*height/3, 4*width/6, 2*height/3)
 
-}
+  };
 
-function draw() {
-  fill(0);
-}
+  s.draw = function() {
+    s.fill(0);
+  };
 
-function touchStarted() {
-  // empty to make sure screen won't be pulled around
-}
+  s.touchStarted = function() {
+    // empty to make sure screen won't be pulled around
+  };
 
-function touchEnded() {
+  s.touchEnded = function() {
 
-  if ((touchY > height/5) && (touchY < 4*height/5)) {
+    if ((s.touchY > height/3) && (s.touchY < 2*height/3)) {
 
-    if ((touchX > width/6) && (touchX < 2*width/6)) {
-      background('red'); 
+      if ((s.touchX > width/6) && (s.touchX < 2*width/6)) {
+        s.background('red'); 
+      }
+
+      else if ((s.touchX > 2*width/6) && (s.touchX < 3*width/6)) {
+        s.background('green'); 
+      }
+
+      else if ((s.touchX > 3*width/6) && (s.touchX < 4*width/6)) {
+        console.log(3*width/6);
+        s.background('blue'); 
+      }
+
+      else if ((s.touchX > 4*width/6) && (s.touchX < 5*width/6)) {
+        s.background('yellow'); 
+      }
     }
+  };
 
-    else if ((touchX > 2*width/6) && (touchX < 3*width/6)) {
-      background('green'); 
-    }
+};
 
-    else if ((touchX > 3*width/6) && (touchX < 4*width/6)) {
-      console.log(3*width/6);
-      background('blue'); 
-    }
-
-    else if ((touchX > 4*width/6) && (touchX < 5*width/6)) {
-      background('yellow'); 
-    }
-  }
-}
+var p5_intro = new p5(introSketch);

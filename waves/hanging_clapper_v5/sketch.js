@@ -36,9 +36,6 @@ var MAX_CIRCLES = 20;
 var circles = [];
 var p, acceleration;
 
-var s = [];
-var e = [];
-var buffer = 1;
 var i;
 
 var bounciness = 0.2;
