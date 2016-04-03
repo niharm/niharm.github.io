@@ -193,8 +193,9 @@ window.addEventListener('touchstart', function()
     {
       oscs[i].start();
     }
+    doFirst = 0;
   }
-  
+
   // this stuff is to avoid tuning issues caused by 48k vs 44.1k sample rates
   var playInitSound = function playInitSound() {
       var source = context.createBufferSource();
