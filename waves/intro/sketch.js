@@ -6,17 +6,16 @@ function setup() {
   textAlign(CENTER);
   text('where are you?', width/2,height/10);
 
+
   fill('red');
-  rect(width/6, height/5, width/6, 3*height/5);
+  quad(2*width/8, height/3, 3*width/8,height/3, 2*width/6, 2*height/3, width/6, 2*height/3)
   fill('green');
-  rect(2*width/6, height/5, width/6, 3*height/5);
+  quad(3*width/8, height/3, 4*width/8,height/3, 3*width/6, 2*height/3, 2*width/6, 2*height/3)
   fill('blue');
-  rect(3*width/6, height/5, width/6, 3*height/5);
+  quad(4*width/8, height/3, 5*width/8,height/3, 4*width/6, 2*height/3, 3*width/6, 2*height/3)
   fill('yellow');
-  rect(4*width/6, height/5, width/6, 3*height/5);
+  quad(5*width/8, height/3, 6*width/8,height/3, 5*width/6, 2*height/3, 4*width/6, 2*height/3)
 
-
-  draw
 }
 
 function draw() {
