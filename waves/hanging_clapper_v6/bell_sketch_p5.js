@@ -52,7 +52,7 @@ var bellSketch = function(s) {
     height = s.height;
     width = s.width;
 
-    p = new Particle(width/2, height/2);
+    p = new Clapper(width/2, height/2);
     acceleration = s.createVector(0, 0);
 
     s.initSound();
@@ -276,8 +276,13 @@ var bellSketch = function(s) {
       
     oscs[i].detune.value = random(-6, +6); // random detuning
     }
+  };
+
+  s.end = function() {
+    s.remove();
   }
 
 };
 
 var p5_bell = new p5(bellSketch);
+p5_bell.end();

@@ -1,6 +1,6 @@
 // Based on Shiffman's Particle Class
-// Custom Particle Class
-function Particle(x,y) {
+// Custom Clapper Class
+function Clapper(x,y) {
   this.theta = 0;
   this.acceleration = 0;
   this.velocity = 0;

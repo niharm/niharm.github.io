@@ -34,7 +34,6 @@ var s0 = function( sketch ) {
 
   sketch.callMe = function() {
     console.log('yo');
-    increaseH;
     sketch.remove();
   };
 };
