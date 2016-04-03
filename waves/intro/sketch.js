@@ -7,7 +7,7 @@ function draw() {
   fill(0);
 }
 
-function touchEnded() {
+function touchStarted() {
   background(0);
   ellipse(touchX, touchY, 50, 50);
   // prevent default
