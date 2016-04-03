@@ -68,7 +68,7 @@ function setup() {
 
 function draw() {
 
-  background(0, 90);
+  background(0);
 
   p.steer(stiffness, damping);
   p.update(acceleration);
